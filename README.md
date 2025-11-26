@@ -45,6 +45,7 @@ Nb. Door *open* toe te voegen aan een *details* element kun je deze standaard op
   <img src="images/home3.png" width="375px" alt="omschrijving van de pagina">
   <img src="images/home4.png" width="375px" alt="omschrijving van de pagina">
   <img src="images/home5.png" width="375px" alt="omschrijving van de pagina">
+  <img src="images/homepagina.JPG" width="375px" alt="omschrijving van de pagina">
 
   #### Screenshot(s) van de tweede pagina (small screen):
   <img src="images/pagina2-1.png" width="375px" alt="omschrijving van de pagina">
@@ -66,6 +67,16 @@ Nb. Door *open* toe te voegen aan een *details* element kun je deze standaard op
 
   ### Bevindingen
   Lijst met je bevindingen die in de test naar voren kwamen:
+  test met voorwerpen voor fysieke aandoening: 
+  met twee vingers aan elkaar vast gaat scrollen moeilijk. het gaat haperend. Zijkant scrollen gaat wel prima, maar ook niet soepel. Klikken gaat goed, daar kan je de oppervlakte van je vingers prima voor gebruiken. 
+
+  met het schokapparaat is het bijna onmogelijk. je beweeft dan heel erg op en neer. wanneer het apparaat op kleine schokjes staat is er nog wel wat mogelijk, maar dan klik je vaak op de touchpad. scrollen gaat dan nog wel. 
+
+  Test met screenreader
+  De screenreader op de eerste pagina is best wel goed. alles wordt voorgelezen. bij de lopende balk gaat de screenreader wel steeds dezelde dingen herhalen, ook bij het inschrijven voor de nieuwletter loopt ie vast wanneer je een vakje moet aanvinken. dat kan je oplossen door control+optie+spatie in te drukken, maar dit wordt niet benoemt. zelfde geldt voor wanneer je niet iets invult in een balk. de balk wordt rood, maar dat wordt niet benoemt. de screenreader stopt daarna met praten. ik zie geen aanwijzing hoe je het verder kan laten gaan. van boven naar beneden scrollen was goed, horizontaal niet.  
+
+  op pagina twee is de screenreader ook best oke. hier wordt alles voorgelezen. ook alle iconen met linkjes worden voorgelezen. Het menu wordt uitgelegd. ook de eerste nummers in de spotifylijst worden benoemt. maar daarna loopt ie wel weer vast bij de zijwaarse balk. daar benoemt de screenreader vaak wat er staat. ook op het einde doet ie gek. want daar wordt de hele beschrijving benoemt van de afbeelding. van boven naar beneden scrollen was goed, horizontaal niet.  
+
 
 </details>
 
