@@ -40,20 +40,10 @@ Nb. Door *open* toe te voegen aan een *details* element kun je deze standaard op
 
   #### Screenshot(s) van de eerste pagina (small screen): 
   hier de naam van de pagina  
-  <img src="images/home1.png" width="375px" alt="omschrijving van de pagina">
-  <img src="images/home2.png" width="375px" alt="omschrijving van de pagina">
-  <img src="images/home3.png" width="375px" alt="omschrijving van de pagina">
-  <img src="images/home4.png" width="375px" alt="omschrijving van de pagina">
-  <img src="images/home5.png" width="375px" alt="omschrijving van de pagina">
   <img src="images/homepagina.JPG" width="375px" alt="omschrijving van de pagina">
 
   #### Screenshot(s) van de tweede pagina (small screen):
-  <img src="images/pagina2-1.png" width="375px" alt="omschrijving van de pagina">
-  <img src="images/pagina2-2.png" width="375px" alt="omschrijving van de pagina">
-  <img src="images/pagina2-3.png" width="375px" alt="omschrijving van de pagina">
-  <img src="images/pagina2-4.png" width="375px" alt="omschrijving van de pagina">
-  <img src="images/pagina2-5.png" width="375px" alt="omschrijving van de pagina">
-  <img src="images/pagina2-6.png" width="375px" alt="omschrijving van de pagina">
+  <img src="images/tweedepagina.JPG" width="375px" alt="omschrijving van de pagina">
   
  
 </details>
