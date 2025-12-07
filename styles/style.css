@@ -1,25 +1,84 @@
 /**************/
 /* CSS REMEDY */
 /**************/
+@font-face {
+	font-family: "franklin-gothic-atf",sans-serif;
+	font-weight: 700;
+	font-style: normal;
+	src: url(../fonts/franklin-gothic-variable.woff2) format("opentype");
+}
+  
+  @font-face {
+	font-family: "ABC Gravity Variable",sans-serif;
+	font-weight: 400;
+	font-style: normal;
+	src: url(../fonts/ABC-Gravity-Variable.ttf) format("opentype");
+} 
+*/
+
 *, *::after, *::before {
-  box-sizing:border-box;  
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: var(--font-primary);
 }
 
+body {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
 
+img {
+  width: 100%;
+}
 
-
-
+.visually-hidden {
+	clip: rect(0 0 0 0);
+	clip-path: inset(50%);
+	height: 1px;
+	overflow: hidden;
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
+}
 
 /*********************/
 /* CUSTOM PROPERTIES */
 /*********************/
 :root {
-	/* startje */
+	--font-primary: "franklin-gothic-atf",sans-serif;
+	--font-secondary: "ABC Gravity Variable",sans-serif;
 	--color-text:#111;
 	--color-background:#eee;
+	--color-white: #fff;
+    --color-gray-light: #cfd8e6;
+    --color-black: #000;
+    --color-black-20: #0003;
+    --color-black-30: #0000004d;
+    --color-blue: #92b2e9;
+    --color-blue-darker: #42a1f7;
+    --color-blue-dark: #3c5ca3;
+    --color-green: #6ae617;
+    --color-green-dark: #273d2e;
+    --color-yellow: #fdd91f;
+    --color-yellow-darker: #fa0;
+    --color-orange: #ff4800;
+    --color-purple: #6a299f;
+    --color-gold: #906f3f;
+    --color-red: #7b0c0c;
+    --color-pink: #df81ad;
+    --color-text: var(--color-black);
+    --color-meta: var(--color-black);
+    --color-lines: var(--color-black);
+    --color-placeholder: var(--color-black);
+    --color-accent: var(--color-black);
+    --color-danger: #dc3545;
+    --color-danger-bg: #f8d7da;
+    --color-success: #198754;
+    --color-stage-background: var(--color-yellow);
+    --color-stage-color: var(--color-text);
+    --color-day-background: var(--color-blue-darker);
 }
-
-
 
 
 
@@ -27,5 +86,128 @@
 /* JOUW STYLING */
 /****************/
 
-/* jouw code */
+body {
+  accent-color: var(--color-accent);
+  background-color: var(--color-blue);
+  color: var(--color-text);
+  margin: 0;
+  padding: 0;
+}
+
+/***header*/
+
+header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	background-color:var(--color-white);
+	width: 100%;
+  position: relative;
+  
+}
+
+header button {
+order: -1;
+}
+
+nav{
+  position: fixed;
+  left: 0;
+  right:0 ;
+  top: 0;
+  bottom: 0;
+  translate: -100% 0%;
+  transition:translate .3s;
+  background-color: var(--color-white);
+  z-index: 100;
+}
+
+nav.toonMenu {
+  translate: 0% 0%;
+}
+
+
+
+@media (min-width:38em){
+  header > button {
+    display: none;
+  }
+
+
+nav {
+  position: static;
+  translate: unset;
+  padding: 0;
+  background: none;
+
+}
+
+nav button{
+  display: none;
+}
+
+nav ul {
+  display: flex;
+  gap: 1em;
+}
+
+
+nav a {
+  flex-direction: column;
+  border: none;
+}
+
+header > a:last-of-type {
+  flex-direction: column;
+}
+
+}
+
+
+
+
+/*h-elementen*/
+
+h1 {
+  font-family: var(--font-secondary);
+  font-size: 2.8em;
+  line-height: 1;
+  text-align: center;
+  font-stretch: extra-expanded;
+}
+
+h2 {
+  font-family: var(--font-primary);
+  font-size: 2.8em;
+  font-stretch: extra-expanded;
+  line-height: 1;
+  text-align: center;
+}
+
+h3 {
+  font-family: var(--font-primary);
+  font-size: 1.17em;
+  line-height: 1;
+  text-decoration: none;
+  color: var(--color-text);
+}
+
+/*sections*/
+
+section:nth-of-type(2) {
+  background-color: var(--color-yellow);
+}
+
+section:nth-of-type(3) {
+  background-color: var(--color-yellow);
+}
+
+footer {
+  background-color: var(--color-orange);
+}
+
+img {
+  border-radius: 2em;
+}
+
 
