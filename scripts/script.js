@@ -1,24 +1,21 @@
 // JavaScript Document
 console.log("hi");
 
-/* menu openen de MENU button */
-var openButton = document.querySelector("header > button");
+//menu variables
+const openButton = document.querySelector("header > button");
+const sluitButton = document.querySelector("nav button");
+const deNav = document.querySelector ("nav");
 
-openButton.addEventListener("click",openMenu);
+//menu eventlisteners 
+openButton.addEventListener("click", openMenu);
+sluitButton.addEventListener("click", sluitMenu);
 
-function openMenu(){
-    var deNav = document.querySelector("nav");
+//menu functions 
+function openMenu() {
     deNav.classList.add("toonMenu");
 }
 
-/* menu sluiten met de sluit button */
-
-var sluitButton = document.querySelector("nav button");
-
-sluitButton.addEventListener("click",sluitMenu);
-
-function sluitMenu () {
-    var deNav = document.querySelector("nav");
+function sluitMenu() {
     deNav.classList.remove("toonMenu");
 }
 

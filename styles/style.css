@@ -1,17 +1,21 @@
 /**************/
 /* CSS REMEDY */
 /**************/
+
+/*vragen: - wat voor min-width moet ik doen? 
+- wanneer ik de font-size overneem van de code, komt het niet overeen, 
+dat van mij is dan een stuk groter dan origineel. ik zie ook in de code iets staan over
+font-size 62%, heeft dat daar iets mee te maken? */
+
+
+/* bron: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@font-face#description*/
 @font-face {
-	font-family: "franklin-gothic-atf",sans-serif;
-	font-weight: 700;
-	font-style: normal;
+	font-family: "franklin-gothic-atf";
 	src: url(../fonts/franklin-gothic-variable.woff2) format("opentype");
 }
   
   @font-face {
-	font-family: "ABC Gravity Variable",sans-serif;
-	font-weight: 400;
-	font-style: normal;
+	font-family: "ABC Gravity Variable";
 	src: url(../fonts/ABC-Gravity-Variable.ttf) format("opentype");
 } 
 */
@@ -48,6 +52,10 @@ img {
 :root {
 	--font-primary: "franklin-gothic-atf",sans-serif;
 	--font-secondary: "ABC Gravity Variable",sans-serif;
+  --font-weight-normal: 400;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+ --font-weight-black: 900;
 	--color-text:#111;
 	--color-background:#eee;
 	--color-white: #fff;
@@ -80,8 +88,6 @@ img {
     --color-day-background: var(--color-blue-darker);
 }
 
-
-
 /****************/
 /* JOUW STYLING */
 /****************/
@@ -103,11 +109,23 @@ header {
 	background-color:var(--color-white);
 	width: 100%;
   position: relative;
-  
+  padding-top: 1.5em;
+  padding-bottom: 1.5em;
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+  box-sizing: border-box;
 }
 
 header button {
-order: -1;
+  font-family: var(--font-secondary);
+  font-size: 1.6em;
+  border: none;
+  line-height: 1,2;
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  cursor: pointer;
+  transform: scaleX(0.9); /*bron:https://www.w3schools.com/cssref/func_scalex.php*/
 }
 
 nav{
@@ -116,16 +134,25 @@ nav{
   right:0 ;
   top: 0;
   bottom: 0;
-  translate: -100% 0%;
-  transition:translate .3s;
+  translate: 100% 0%;
+
   background-color: var(--color-white);
   z-index: 100;
+  font-family: var(--font-secondary);
+  text-decoration: none;
+}
+
+header a {
+  text-decoration: none;
+  color: var(--color-text);
+  
 }
 
 nav.toonMenu {
   translate: 0% 0%;
 }
 
+/*bron voor menu: https://codepen.io/shooft/pen/VwJXNEg*/
 
 
 @media (min-width:38em){
@@ -133,13 +160,11 @@ nav.toonMenu {
     display: none;
   }
 
-
 nav {
   position: static;
   translate: unset;
   padding: 0;
   background: none;
-
 }
 
 nav button{
@@ -151,7 +176,6 @@ nav ul {
   gap: 1em;
 }
 
-
 nav a {
   flex-direction: column;
   border: none;
@@ -160,36 +184,24 @@ nav a {
 header > a:last-of-type {
   flex-direction: column;
 }
-
 }
-
-
-
 
 /*h-elementen*/
 
 h1 {
   font-family: var(--font-secondary);
-  font-size: 2.8em;
+  font-size: 2em;
   line-height: 1;
   text-align: center;
   font-stretch: extra-expanded;
+  font-style: bold;
 }
 
 h2 {
   font-family: var(--font-primary);
-  font-size: 2.8em;
-  font-stretch: extra-expanded;
+  font-size: 2em;
   line-height: 1;
   text-align: center;
-}
-
-h3 {
-  font-family: var(--font-primary);
-  font-size: 1.17em;
-  line-height: 1;
-  text-decoration: none;
-  color: var(--color-text);
 }
 
 /*sections*/
@@ -206,8 +218,32 @@ footer {
   background-color: var(--color-orange);
 }
 
-img {
-  border-radius: 2em;
+section:first-of-type h3{
+  font-family: var(--font-secondary);
+  color: var(--color-white);
+  font-weight: 400;
+  font-size: 1.17em;
+}
+
+ul {
+  list-style: none;
+}
+
+/*section-Program*/
+
+section:first-of-type h2 {
+  font-size: 1.5em;
+  font-family: var(--font-secondary);
+  margin-block: 0.75em 0.5em;
+  
+}
+
+section:first-of-type ul img {
+  border-radius: 2em ;
+}
+
+section:first-of-type a{
+  text-decoration: none;
 }
 
 
