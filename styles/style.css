@@ -11,12 +11,12 @@ font-size 62%, heeft dat daar iets mee te maken? */
 /* bron: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@font-face#description*/
 @font-face {
 	font-family: "franklin-gothic-atf";
-	src: url(../fonts/franklin-gothic-variable.woff2) format("opentype");
+	src: url(../fonts/franklin-gothic-variable.woff2) format("woff2");
 }
   
   @font-face {
 	font-family: "ABC Gravity Variable";
-	src: url(../fonts/ABC-Gravity-Variable.ttf) format("opentype");
+	src: url(../fonts/ABC-Gravity-Variable.ttf) format("truetype");
 } 
 */
 
@@ -98,17 +98,20 @@ body {
   color: var(--color-text);
   margin: 0;
   padding: 0;
+  font-family: var(--font-primary);
 }
 
 /***header*/
 
 header {
 	display: flex;
+  position: fixed;
+  z-index: 9999;
+  
 	align-items: center;
 	justify-content: space-between;
 	background-color:var(--color-white);
 	width: 100%;
-  position: relative;
   padding-top: 1.5em;
   padding-bottom: 1.5em;
   padding-left: 1.5em;
@@ -116,9 +119,11 @@ header {
   box-sizing: border-box;
 }
 
+/*bron menu: https://codepen.io/shooft/pen/myepoJo*/
+
 header button {
   font-family: var(--font-secondary);
-  font-size: 1.6em;
+  font-size: 1.4em;
   border: none;
   line-height: 1,2;
   margin: 0;
@@ -135,7 +140,6 @@ nav{
   top: 0;
   bottom: 0;
   translate: 100% 0%;
-
   background-color: var(--color-white);
   z-index: 100;
   font-family: var(--font-secondary);
@@ -143,19 +147,17 @@ nav{
 }
 
 header a {
-  text-decoration: none;
-  color: var(--color-text);
-  
+  width:6em;
 }
 
 nav.toonMenu {
   translate: 0% 0%;
 }
 
-/*bron voor menu: https://codepen.io/shooft/pen/VwJXNEg*/
+/*bron voor responsive menu: https://codepen.io/shooft/pen/VwJXNEg*/
 
 
-@media (min-width:38em){
+/*@media (min-width:38em){
   header > button {
     display: none;
   }
@@ -185,23 +187,17 @@ header > a:last-of-type {
   flex-direction: column;
 }
 }
+*/
+
 
 /*h-elementen*/
-
-h1 {
-  font-family: var(--font-secondary);
-  font-size: 2em;
-  line-height: 1;
-  text-align: center;
-  font-stretch: extra-expanded;
-  font-style: bold;
-}
 
 h2 {
   font-family: var(--font-primary);
   font-size: 2em;
   line-height: 1;
   text-align: center;
+  
 }
 
 /*sections*/
@@ -225,9 +221,15 @@ section:first-of-type h3{
   font-size: 1.17em;
 }
 
-ul {
-  list-style: none;
+section:first-of-type h2{
+  font-family: var(--font-secondary);
+  color: var(--color-black);
+  font-weight: 400;
+  font-size: 1.17em;
+  padding-bottom: 1.5em;
+  padding-top: 1.5em;
 }
+
 
 /*section-Program*/
 
@@ -235,15 +237,118 @@ section:first-of-type h2 {
   font-size: 1.5em;
   font-family: var(--font-secondary);
   margin-block: 0.75em 0.5em;
-  
+}
+
+#program > img {
+  width: 26em;
+  height: 25em;
+  object-fit: cover;
+  display: block; /*daardoor verdwijnt de ruimte eronder*/
 }
 
 section:first-of-type ul img {
-  border-radius: 2em ;
+  border-radius: 2em;
+  width: 20em;
 }
 
 section:first-of-type a{
   text-decoration: none;
 }
 
+/*carousel*/ 
+section:first-of-type ul{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.0em;
+}
 
+section:first-of-type div{
+  width: 400px;
+}
+
+.carousel1 {
+  display: flex;
+  gap: 20px;
+  padding: 0 30px;       
+  
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+
+
+/*youtube link uitleg voor @keyframes: https://www.youtube.com/watch?v=HZHHBwzmJLk*/
+/*bron: chatgpt*/
+#program section {
+  overflow: hidden;
+  white-space: nowrap;
+  background-color: var(--color-green); 
+  height: 3em;
+  display: flex;
+  align-items: center;
+}
+
+#program section > p {
+  display: inline-flex;
+  align-items: center;
+  gap: .4em;
+  animation: scroll-text 100s linear infinite;
+  font-family: var(--font-secondary);
+  font-size: 2.1em;        
+  text-transform: uppercase;
+}
+
+#program section > p > img {
+  height: 0.6em;
+  width: auto;
+}
+
+@keyframes scroll-text {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+ul {
+  list-style: none;
+}
+
+section:first-of-type > a:last-of-type{
+  font-family: var(--font-secondary);
+  font-size: 1.5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: var(--color-black);
+  text-transform: uppercase;
+  transform: scaleX(0.6);
+  padding-bottom: 1.8em;
+  padding-top: 1.8em;
+}
+
+
+/* section News*/ 
+
+section:nth-of-type(2) h2 {
+  transform: scaleX(1.3);
+  padding-top: 1.2em;
+  padding-bottom: 1.2em;
+}
+
+section:nth-of-type(2) li > a {
+  text-decoration: none;
+  color: var(--color-white);
+  border-bottom: none;
+}
+
+section:nth-of-type(2) ul {
+  display: flex;
+  
+}
