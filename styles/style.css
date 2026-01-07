@@ -30,6 +30,7 @@ font-size 62%, heeft dat daar iets mee te maken? */
 body {
   overflow-x: hidden;
   scroll-behavior: smooth;
+  width: 100%;
 }
 
 img {
@@ -105,13 +106,15 @@ body {
 
 header {
 	display: flex;
-  position: fixed;
+  position: sticky;
   z-index: 9999;
   
 	align-items: center;
 	justify-content: space-between;
 	background-color:var(--color-white);
 	width: 100%;
+  height: 3.5em;
+  overflow-x: hidden;
   padding-top: 1.5em;
   padding-bottom: 1.5em;
   padding-left: 1.5em;
@@ -130,7 +133,10 @@ header button {
   padding: 0;
   background-color: transparent;
   cursor: pointer;
-  transform: scaleX(0.9); /*bron:https://www.w3schools.com/cssref/func_scalex.php*/
+  /*transform: scaleX(0.9); /*bron:https://www.w3schools.com/cssref/func_scalex.php*/
+  overflow-x: hidden;
+  max-width: 100%;
+  
 }
 
 nav{
@@ -231,7 +237,11 @@ section:first-of-type h2{
 }
 
 
-/*section-Program*/
+
+
+/************/
+/* SECTION PROGRAM */
+/************/
 
 section:first-of-type h2 {
   font-size: 1.5em;
@@ -244,40 +254,72 @@ section:first-of-type h2 {
   height: 25em;
   object-fit: cover;
   display: block; /*daardoor verdwijnt de ruimte eronder*/
-}
-
-section:first-of-type ul img {
-  border-radius: 2em;
-  width: 20em;
+  max-width: 100%;
 }
 
 section:first-of-type a{
   text-decoration: none;
 }
 
-/*carousel*/ 
-section:first-of-type ul{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1.0em;
-}
+/************/
+/* CAROUSEL */
+/************/
 
-section:first-of-type div{
-  width: 400px;
-}
-
+/* outer wrapper */
 .carousel1 {
-  display: flex;
-  gap: 20px;
-  padding: 0 30px;       
-  
-  overflow-x: scroll;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
+	width: 100%;
 }
 
+/* inner wrapper */
+section:first-of-type ul {
+	display: flex;
+	gap: 1em;
+	overflow-x: scroll;
+	scroll-snap-type: x mandatory;
+	scroll-behavior: smooth;
+	-webkit-overflow-scrolling: touch;
+  
+}
+section:first-of-type ul::-webkit-scrollbar {
+	display: none;
+}
+
+/* item */
+section:first-of-type li {
+	flex: 0 0 auto;
+	scroll-snap-align: center;
+	/* beetje padding (top+bottom) voor transform scale anders snijd de overflow het af */
+	padding-block: 0.25em;
+}
+
+section:first-of-type a {
+	text-decoration: none;
+	/* grid trucje 2 items op elkaar kunnen zonder position: absolute;, hierdoor is de tekst nog steeds zichtbaar voor screenreaders */
+	position: relative;
+	display: grid;
+}
+
+section:first-of-type li h3 {
+	margin: 1em;
+	z-index: 2;
+	/* grid trucje 2 items op elkaar kunnen zonder position: absolute;, hierdoor is de tekst nog steeds zichtbaar voor screenreaders */
+	grid-area: 1 / 1;
+	align-self: flex-end;
+}
+
+section:first-of-type li img {
+	border-radius: 2em;
+	width: 20em;
+	transition: 0.2s ease-in-out;
+	transition-property: border-radius, transform;
+
+	/* grid trucje 2 items op elkaar kunnen zonder position: absolute;, hierdoor is de tekst nog steeds zichtbaar voor screenreaders */
+	grid-area: 1 / 1;
+}
+section:first-of-type li:hover img {
+	border-radius: 0;
+	transform: scale(1.02);
+}
 
 
 /*youtube link uitleg voor @keyframes: https://www.youtube.com/watch?v=HZHHBwzmJLk*/
@@ -333,22 +375,145 @@ section:first-of-type > a:last-of-type{
   padding-top: 1.8em;
 }
 
+/************/
+/* SECTION NEWS */
+/************/
 
-/* section News*/ 
+section:nth-of-type(2) {
+  padding-top: 1.5em;
+}
 
 section:nth-of-type(2) h2 {
-  transform: scaleX(1.3);
-  padding-top: 1.2em;
-  padding-bottom: 1.2em;
+  transform: scaleX(1.5);
+  font-size: 1.5em;
 }
 
-section:nth-of-type(2) li > a {
-  text-decoration: none;
-  color: var(--color-white);
-  border-bottom: none;
-}
+/************/
+/* CAROUSEL2 NEWS */
+/************/
 
+/* inner wrapper */
 section:nth-of-type(2) ul {
   display: flex;
+  gap: 1em;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
   
 }
+section:nth-of-type(2) ul::-webkit-scrollbar {
+  display: none;
+}
+/* item */
+section:nth-of-type(2) li {
+  flex: 0 0 auto;
+  scroll-snap-align: center;
+  /* beetje padding (top+bottom) voor transform scale anders snijd de overflow het af */
+  padding-block: 0.25em;
+  overflow-x: hidden;
+  
+}
+section:nth-of-type(2) a {
+  text-decoration: none;
+  /* grid trucje 2 items op elkaar kunnen zonder position: absolute;, hierdoor is de tekst nog steeds zichtbaar voor screenreaders */
+  position: relative;
+  display: grid;
+  width: 20em;
+  height: 25em;
+  overflow: hidden;
+}
+section:nth-of-type(2) li h3 {
+  margin: 1em;
+  z-index: 3;
+  /* grid trucje 2 items op elkaar kunnen zonder position: absolute;, hierdoor is de tekst nog steeds zichtbaar voor screenreaders */
+  grid-area: 1 / 1;
+  align-self: flex-end;
+  padding-bottom: 2em;
+  font-size: 1.5em;
+  color: var(--color-white);
+}
+section:nth-of-type(2) li p {
+  z-index: 2;
+  grid-area: 1 / 1;
+  margin: 1em;
+  color: var(--color-white);
+  
+}
+section:nth-of-type(2) li div {
+  z-index: 2;
+  grid-area: 1 / 1;
+  align-self: flex-start;
+  margin: 1em;
+  display: flex;
+  gap: 0.5em;
+  justify-content: center;
+  
+}
+
+section:nth-of-type(2) li > a > p {
+  z-index: 2;
+  grid-area: 1 / 1;
+  margin: 1em;
+  align-self: flex-end;
+  margin-top: auto;
+}
+
+section:nth-of-type(2) li img {
+  border-radius: 2em;
+  width: 20em;
+  height: 25em;
+  transition: 0.2s ease-in-out;
+  transition-property: border-radius, transform;
+  /* grid trucje 2 items op elkaar kunnen zonder position: absolute;, hierdoor is de tekst nog steeds zichtbaar voor screenreaders */
+  grid-area: 1 / 1;
+  object-fit: cover;
+  opacity: 0.85;
+  
+}
+section:nth-of-type(2) li:hover img {
+  border-radius: 0;
+  transform: scale(1.02);
+}
+
+/************/
+/* SECTION NEWSLETTER */
+/************/
+
+section:nth-of-type(3) h2 {
+  padding-top: 1em;
+  text-align: left;
+  padding-left: 0.6em;
+  padding-right: 0.6em;
+  
+}
+
+section:nth-of-type(3) p {
+  font-family: var(--font-secondary);
+  font-size: 1em;
+  padding-left: 0.6em;
+  padding-right: 0.6em;
+}
+
+form input {
+  width: 80%;
+  height: 3em;
+  border: 0.1em solid #000;
+  border-radius: 3em;
+  background: transparent;
+  padding: 0 1.5em;
+  font-size: 1em;
+  margin: 0 auto 2em auto;
+  box-sizing: border-box;
+  display: block;
+}
+
+
+
+
+
+
+/************/
+/* SECTION FOOTER */
+/************/
+
