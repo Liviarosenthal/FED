@@ -11,14 +11,14 @@ font-size 62%, heeft dat daar iets mee te maken? */
 /* bron: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@font-face#description*/
 @font-face {
 	font-family: "franklin-gothic-atf";
-	src: url(../fonts/franklin-gothic-variable.woff2) format("woff2");
+	src: url(../fonts/franklin-gothic-atf.otf) format("opentype");
 }
   
   @font-face {
 	font-family: "ABC Gravity Variable";
 	src: url(../fonts/ABC-Gravity-Variable.ttf) format("truetype");
 } 
-*/
+
 
 *, *::after, *::before {
     padding: 0;
@@ -220,33 +220,25 @@ footer {
   background-color: var(--color-orange);
 }
 
-section:first-of-type h3{
-  font-family: var(--font-secondary);
-  color: var(--color-white);
-  font-weight: 400;
-  font-size: 1.17em;
-}
-
-section:first-of-type h2{
-  font-family: var(--font-secondary);
-  color: var(--color-black);
-  font-weight: 400;
-  font-size: 1.17em;
-  padding-bottom: 1.5em;
-  padding-top: 1.5em;
-}
-
-
-
-
 /************/
 /* SECTION PROGRAM */
 /************/
 
-section:first-of-type h2 {
-  font-size: 1.5em;
+
+section:first-of-type h2{
   font-family: var(--font-secondary);
+  color: var(--color-black);
+  padding-bottom: 1.5em;
+  padding-top: 1.5em;
+  font-size: 1.5em;
   margin-block: 0.75em 0.5em;
+}
+
+section:first-of-type h3{
+  font-family: var(--font-secondary);
+  color: var(--color-white);
+  font-weight: 400;
+  font-size: 1em;
 }
 
 #program > img {
@@ -308,10 +300,12 @@ section:first-of-type li h3 {
 }
 
 section:first-of-type li img {
-	border-radius: 2em;
-	width: 20em;
+	border-radius: 1em;
+	width: 16em;
+  height: auto;
 	transition: 0.2s ease-in-out;
 	transition-property: border-radius, transform;
+  filter: brightness(80%);
 
 	/* grid trucje 2 items op elkaar kunnen zonder position: absolute;, hierdoor is de tekst nog steeds zichtbaar voor screenreaders */
 	grid-area: 1 / 1;
@@ -363,7 +357,7 @@ ul {
 
 section:first-of-type > a:last-of-type{
   font-family: var(--font-secondary);
-  font-size: 1.5em;
+  font-size: 1.4em;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -371,8 +365,8 @@ section:first-of-type > a:last-of-type{
   color: var(--color-black);
   text-transform: uppercase;
   transform: scaleX(0.6);
-  padding-bottom: 1.8em;
-  padding-top: 1.8em;
+  padding-bottom: 2.5em;
+  padding-top: 4em;
 }
 
 /************/
@@ -386,6 +380,10 @@ section:nth-of-type(2) {
 section:nth-of-type(2) h2 {
   transform: scaleX(1.5);
   font-size: 1.5em;
+  font-family: var(--font-secondary);
+  padding-bottom: 1.5em;
+  padding-top: 1.5em;
+  margin-block: 0.75em 0.5em;
 }
 
 /************/
@@ -393,6 +391,11 @@ section:nth-of-type(2) h2 {
 /************/
 
 /* inner wrapper */
+
+section:nth-of-type(2) {
+  padding-top: 1em;
+}
+
 section:nth-of-type(2) ul {
   display: flex;
   gap: 1em;
@@ -412,6 +415,7 @@ section:nth-of-type(2) li {
   /* beetje padding (top+bottom) voor transform scale anders snijd de overflow het af */
   padding-block: 0.25em;
   overflow-x: hidden;
+  font-family: var(--font-secondary);
   
 }
 section:nth-of-type(2) a {
@@ -432,13 +436,16 @@ section:nth-of-type(2) li h3 {
   padding-bottom: 2em;
   font-size: 1.5em;
   color: var(--color-white);
+  font-family: var(--font-secondary);
+
 }
 section:nth-of-type(2) li p {
   z-index: 2;
   grid-area: 1 / 1;
   margin: 1em;
   color: var(--color-white);
-  
+  font-family: var(--font-secondary);
+
 }
 section:nth-of-type(2) li div {
   z-index: 2;
@@ -448,11 +455,17 @@ section:nth-of-type(2) li div {
   display: flex;
   gap: 0.5em;
   justify-content: center;
+}
+/*de getallen naast 'news'*/
+section:nth-of-type(2) ul li a div p:first-of-type,
+section:nth-of-type(2) ul li a div p:last-of-type {
+  font-size: 1.5em;
   
 }
 
 section:nth-of-type(2) li > a > p {
   z-index: 2;
+  position: relative;
   grid-area: 1 / 1;
   margin: 1em;
   align-self: flex-end;
@@ -461,59 +474,504 @@ section:nth-of-type(2) li > a > p {
 
 section:nth-of-type(2) li img {
   border-radius: 2em;
-  width: 20em;
-  height: 25em;
+  width: 21em;
+  height: auto;
   transition: 0.2s ease-in-out;
   transition-property: border-radius, transform;
   /* grid trucje 2 items op elkaar kunnen zonder position: absolute;, hierdoor is de tekst nog steeds zichtbaar voor screenreaders */
   grid-area: 1 / 1;
   object-fit: cover;
-  opacity: 0.85;
+  filter: brightness(80%);
+  position: relative; /* Nodig om z-index te laten werken (tenzij het een grid-child is, dan werkt het soms direct) */
+  z-index: 1;
   
 }
 section:nth-of-type(2) li:hover img {
   border-radius: 0;
   transform: scale(1.02);
+  
 }
 
 /************/
 /* SECTION NEWSLETTER */
 /************/
 
-section:nth-of-type(3) h2 {
+section:nth-of-type(3) {
   padding-top: 1em;
+}
+
+section:nth-of-type(3) h2 {
+  padding-bottom: 0.7em;
   text-align: left;
-  padding-left: 0.6em;
-  padding-right: 0.6em;
+  
+  
+  font-stretch: expanded;
+  font-size: 2em;
+ 
+  font-family: var(--font-secondary);
+  
   
 }
 
 section:nth-of-type(3) p {
-  font-family: var(--font-secondary);
-  font-size: 1em;
-  padding-left: 0.6em;
-  padding-right: 0.6em;
+  font-family: var(--font-primary);
+  font-size: 1.8em;
+  padding-left: 0.1em;
+  padding-right: 0.1em;
+  max-width: 100%;
+  line-height: 1.05em;
+  padding-bottom: 0.9em;
+}
+
+section:nth-of-type(3) form > p {
+  font-size: 0.8em;
 }
 
 form input {
-  width: 80%;
-  height: 3em;
+  width: 100%;
+  height: 4em;
   border: 0.1em solid #000;
   border-radius: 3em;
   background: transparent;
-  padding: 0 1.5em;
+  margin-bottom: 2em;
   font-size: 1em;
-  margin: 0 auto 2em auto;
-  box-sizing: border-box;
-  display: block;
 }
 
+form label {
+  display: block;
+  margin-bottom: 0.5em;
+  font-family: var(--font-primary);
+  font-size: 1.2em;
+}
 
+section:nth-of-type(3) {
+  padding: 2em 1em;
+}
 
+/* ik wist niet hoe je de checkbox moest aanspreken, dit heb ik gevraagd aan chat*/
 
+form input[type="checkbox"] {
+  width: 0.8em; 
+  height: auto; 
+  
+  align-self: flex-start;
+  margin-bottom: 0;
+  padding-right: 0.5em;
+}
 
+section:nth-of-type(3) form label:nth-of-type(3) {
+  padding-bottom: 1.2em;
+}
+
+section:nth-of-type(3) form label:nth-of-type(4) {
+  padding-bottom: 1.2em;
+}
+
+section:nth-of-type(3) form button {
+  padding: 0.9em;
+  border-radius: 1.5em;
+ 
+  font-family: var(--font-primary);
+  text-transform: uppercase;
+  font-size: 1.2em;
+  color: var(--color-text);
+  background-color: var(--color-blue);
+  border: solid 0.07em;
+  
+}
 
 /************/
 /* SECTION FOOTER */
 /************/
 
+footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;  
+    padding-top: 0;       
+}
+
+/* HET EERSTE LOGO */
+footer > a:first-of-type {
+    display: block;       /* Maakt de link een blok, verwijdert tekst-ruimte */
+    line-height: 0;       
+    margin-top: 0;
+    padding-top: 1em;
+}
+
+footer > a:first-of-type img {
+    width: 20em;
+    padding-top: 0;       
+    margin-top: 0;        
+}
+
+/* DE TWEEDE AFBEELDING */
+footer > img {
+    width: 10em;
+    display: block;
+    margin: 2em auto;    
+    padding-top: 2em; 
+    padding-bottom: 2em;
+}
+
+/*  UL */
+footer ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start; 
+    align-content: flex-start;
+    width: fit-content;   
+    gap: 2.4em 4em;
+    list-style: none;
+    padding-top: 0;
+    padding-bottom: 2em;
+    margin: 0;            
+    box-sizing: border-box;
+    max-width: 100%;
+}
+/* DE ICOONTJES */
+footer li img {
+    width: 2em;
+    height: auto;
+    display: block;      
+    margin: 0;            
+}
+
+footer ul li {
+    margin: 0; 
+}
+
+/*logo's onder icoontjes*/
+footer p {
+     width: 8em; 
+     font-size: 0.8em;
+     
+}
+
+/************/
+/* SEF PAGINA */
+/************/
+
+/*header*/
+
+/*EERSTE SECTIE*/
+
+.sefpagina {
+  background-color: var(--color-orange);
+  color: var(--color-black);
+  font-family: var(--font-primary);
+}
+
+.sefpagina main section h1 {
+  font-family: var(--font-secondary);
+  font-size: 2.8em;
+  text-align: start;
+  margin-top: 1em;
+  margin-bottom: 0;
+  margin-left: 0.3em;
+  padding-bottom: 0;
+  font-stretch: expanded;
+  line-height: 0.9;
+}
+
+.sefpagina main section h2 {
+  font-family: var(--font-secondary);
+  font-size: 1.5em;
+  text-align: start;
+  margin-left: 0.5em;
+  margin-top: 0;
+  padding-top: 0.4em;
+  padding-bottom: 0;
+  
+  text-transform: uppercase;
+}
+
+.sefpagina main section ul {
+  display: flex;
+  gap: 8em;
+  list-style: none;
+  margin-top: 0em;
+  margin-left: 0;
+  padding-left: 0;
+  padding-bottom: 2em;
+  justify-content: center;
+}
+
+.sefpagina main section ul li img {
+  width: 1.3em;
+  height: auto;
+  border-radius: 0;
+  display: block;
+  justify-content: space-between;
+  
+}
+
+.sefpagina main section > img {
+  border-radius: 1.5em 1.5em;
+  display: flex;
+  margin: 0 auto;
+  width: 20em;
+  height: auto;
+  max-width: 100%;
+  
+}
+
+.sefpagina main section h2:nth-of-type(2) {
+  margin-top: 0;
+  margin-bottom: 0.5em;
+  text-align: center;
+  font-stretch: condensed;
+  margin-left: 0;
+}
+
+.sefpagina main section > h3 {
+  color: var(--color-black);
+  text-align: start;
+  margin-left: 0.5em;
+  margin-top: 0;
+  padding-top: 0.4em;
+  padding-bottom: 0.5em;
+  max-width: 90%;
+}
+
+.sefpagina main section p {
+  font-family: var(--font-primary);
+  font-size: 1.2em;
+  line-height: 1.2em;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+  padding-bottom: 2em;
+}
+
+.sefpagina main section iframe:nth-of-type(1) {
+  display: block;
+  margin: 0 auto;
+  border-radius: 0.5em;
+  width: 20em;
+  height: auto;
+  max-width: 100%;
+
+}
+
+.sefpagina main section iframe:nth-of-type(2) {
+  display: block;
+  margin: 2em auto;
+  border-radius: 0.5em;
+  width: 20em;
+  height: 18em;
+  max-width: 100%;
+}
+
+/************/
+/* hier moet Horizontale balk sefpagina */
+/************/
+
+.sefpagina section:nth-of-type(2) {
+  background-color: var(--color-orange);
+}
+
+.sefpagina section:nth-of-type(2)>h2 {
+  width: 90%;
+  max-width: 9em;
+  margin: 0.5em auto; 
+  box-sizing: border-box;
+  text-align: center;
+  font-size: 1.8em;
+  font-family: var(--font-secondary);
+  text-transform: none;
+}
+
+/*GORILLAZ AFBEELDING*/
+
+.sefpagina section > a {
+    position: relative;
+    display: block;
+    width: 90%;
+    height: auto;
+    margin: 20px auto;
+    text-decoration: none;
+    border-radius: 1.5em;
+}
+
+.sefpagina section > a > img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    filter: brightness(80%); /*bron: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/filter-function/brightness*/
+}
+
+.sefpagina section > a > h3,
+.sefpagina section > a > p {
+    position: absolute;
+    left: 1.25rem;
+    color: white;
+    margin: 0;
+    z-index: 2;
+    text-align: left;
+}
+/*ik heb hierboven rem gebruikt, omdat ik dan de h3 en de p gelijk kan uitlijnen met de afbeelding.*/
+
+.sefpagina section > a > h3 {
+    font-family: var(--font-secondary);
+    font-stretch: expanded;
+    bottom: 2em;
+    font-size: 2.5em;
+    text-transform: uppercase;
+}
+
+.sefpagina section > a > p {
+    bottom: 0em;
+    font-family: var(--font-primary);
+    font-size: 1.2em;
+    max-width: 80%;
+}
+
+/************/
+/* ONDER GORILLAZ AFBEELDING */
+/*
+.sefpagina section:nth-of-type(2) > p {
+  font-family: var(--font-primary);
+  font-size: 1.2em;
+  margin: 0 auto;
+  text-align: start;
+  max-width: 90%;
+  padding-bottom: 2em;
+}
+
+.sefpagina section:nth-of-type(2) ul {
+  display: block;
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.sefpagina section:nth-of-type(2) ul li {
+  display: block;
+  width: auto;
+  margin: 0 1em;    
+  padding-left: 1em;  
+  padding-right: 1em;
+  padding-top: 2em;
+  padding-bottom: 2em;
+  
+  padding-top: 2em;
+  border-top: 0.3em solid var(--color-black);
+}
+
+.sefpagina section:nth-of-type(2) ul li h2 {
+  font-size: 2em;
+  padding: 0;
+  margin: 0;
+  line-height: 0.9;
+  max-width: 90%;
+}
+
+.sefpagina section:nth-of-type(2) ul li p  {
+  font-size: 1.2em;
+  font-family: var(--font-primary);
+  color: var(--color-black);
+  padding-bottom: 0;
+} 
+
+.sefpagina section:nth-of-type(2) ul li h3 {
+  font-size: 1.3em;
+  font-family: var(--font-secondary);
+  color: var(--color-black);
+  font-weight: var(--font-weight-bold);
+  padding-bottom: 0.5em;
+}
+
+.sefpagina section:nth-of-type(2) ul li:last-of-type {
+  border-bottom: 0.3em solid var(--color-black);
+}
+*/
+.sefpagina section:nth-of-type(2) > p {
+  font-family: var(--font-primary);
+  font-size: 1.2em;
+  margin: 0 auto;
+  text-align: start;
+  padding-bottom: 1.5em;
+  padding-left: 1.5em;
+}
+/* 1. De Lijst Container */
+.sefpagina section:nth-of-type(2) ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: block;
+}
+
+/* 2. De Items (Hier regelen we de lijnen en de ruimte) */
+.sefpagina section:nth-of-type(2) ul li {
+    display: block;
+    box-sizing: border-box;
+
+    /* A. DE LIJNEN: Margin zorgt dat de lijn de rand van het scherm NIET raakt */
+    /* 0 boven/onder, 1.5em links/rechts */
+    margin: 0 1.5em; 
+    
+    /* B. DE BORDER: De lijn boven elk item */
+    border-top: 0.3em solid var(--color-black); /* Aangepast naar jouw var */
+
+    /* C. DE TEKST POSITIE: Padding duwt de tekst naar binnen t.o.v. de lijn */
+    /* 2em ruimte boven/onder de tekst, 1em ruimte links/rechts van de tekst */
+    padding: 1em 0.5em; 
+}
+
+/* 3. Zorg dat het LAATSTE item een lijn aan de onderkant krijgt */
+.sefpagina section:nth-of-type(2) ul li:last-of-type {
+    border-bottom: 0.3em solid var(--color-black);
+    padding
+}
+
+/* 4. UITLIJNING RESETTEN (Cruciaal!) */
+/* We resetten de padding van alle teksten naar 0. 
+   Omdat ze in de 'li' zitten die al padding heeft (regel C), 
+   staan ze nu allemaal kaarsrecht onder elkaar. */
+.sefpagina section:nth-of-type(2) ul li h2,
+.sefpagina section:nth-of-type(2) ul li p,
+.sefpagina section:nth-of-type(2) ul li h3 {
+    padding-left: 0; 
+    margin-left: 0;
+    margin-right: 0;
+}
+
+/* 5. De specifieke stijlen per tekst */
+.sefpagina section:nth-of-type(2) ul li h2 {
+    font-size: 2em;
+    line-height: 0.9;
+    text-transform: uppercase;
+    font-weight: 900;
+    max-width: 90%;
+    margin-top: 0;
+    margin-bottom: 0.2em;
+    padding-left: 1.3em;
+}
+
+.sefpagina section:nth-of-type(2) ul li p {
+    font-size: 1.2em;
+    font-family: var(--font-primary); /* Aangepast naar jouw var */
+    color: var(--color-black);
+    margin-top: 0;
+    margin-bottom: 0em;
+    padding-bottom: 1em;
+} 
+
+.sefpagina section:nth-of-type(2) ul li h3 {
+    font-size: 1.3em;
+    font-family: var(--font-secondary);
+    color: var(--color-black);
+    font-weight: var(--font-weight-bold);
+    margin: 0;
+    padding-bottom: 1.5em;
+}
+/************/
+/* footer SEFPAGINA */
+/************/
+
+.sefpagina footer {
+  background-color: var(--color-yellow)
+}
+
+
+ 
