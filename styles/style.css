@@ -2,12 +2,6 @@
 /* CSS REMEDY */
 /**************/
 
-/*vragen: - wat voor min-width moet ik doen? 
-- wanneer ik de font-size overneem van de code, komt het niet overeen, 
-dat van mij is dan een stuk groter dan origineel. ik zie ook in de code iets staan over
-font-size 62%, heeft dat daar iets mee te maken? */
-
-
 /* bron: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@font-face#description*/
 @font-face {
 	font-family: "franklin-gothic-atf";
@@ -24,6 +18,7 @@ font-size 62%, heeft dat daar iets mee te maken? */
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    transition: all 0.5 ease-in-out;
     font-family: var(--font-primary);
 }
 
@@ -31,10 +26,15 @@ body {
   overflow-x: hidden;
   scroll-behavior: smooth;
   width: 100%;
+  box-sizing: border-box;
 }
 
 img {
   width: 100%;
+}
+
+ul {
+  list-style: none;
 }
 
 .visually-hidden {
@@ -102,11 +102,24 @@ body {
   font-family: var(--font-primary);
 }
 
+/*sections achtergrondkleuren*/
+section:nth-of-type(2) {
+  background-color: var(--color-yellow);
+}
+
+section:nth-of-type(3) {
+  background-color: var(--color-yellow);
+}
+
+footer {
+  background-color: var(--color-orange);
+}
+
 /***header*/
 
 header {
 	display: flex;
-  position: sticky;
+  position: fixed;
   z-index: 99;
 	align-items: center;
 	justify-content: space-between;
@@ -131,9 +144,6 @@ header button {
   line-height: 1,2;
   background-color: transparent;
   cursor: pointer;
-  /*transform: scaleX(0.9); /*bron:https://www.w3schools.com/cssref/func_scalex.php*/
-  transform: scaleY(1.2);
-  
 }
 
 header nav{
@@ -145,38 +155,22 @@ header nav{
   height: 100vh;
   bottom: 0;
   translate: 100% 0%;
+  transition: translate 0.3s; /*bron:https://codepen.io/shooft/pen/myepoJo*/
   background-color: var(--color-white);
-  z-index: 1000;
-  font-family: var(--font-secondary);
-  text-decoration: none;
-  padding: 2em;
-  box-sizing: border-box;
-  overflow-y: auto;
-  overflow-x: hidden;
 }
 
-/*in menu*/
-
-header nav ul {
-  box-sizing: border-box;
-  overflow-x: hidden;
-  
-  top: 0;
-  left: 0;
-  right: 0;
-  width: auto;
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
+header nav.toonMenu {
+  translate: 0% 0%;
 }
 
 header nav ul:nth-of-type(1) li a {
+  display: flex;
+  justify-content: flex-start;
   font-family: var(--font-secondary);
   list-style: none;
   text-decoration: none;
   color: var(--color-black);
   font-size: 1.5em;
-  
   padding: 0;
   margin: 0;
 }
@@ -184,31 +178,27 @@ header nav ul:nth-of-type(1) li a {
 /*het kruisje*/
 header nav ul:first-of-type li:first-of-type {
   display: flex;
-    justify-content: flex-end; /* Zorgt dat de inhoud naar rechts wordt uitgelijnd */
-    width: 100%;           /* Zorgt dat de li de volledige breedte inneemt */
-  
-  text-align: right;      /* Zet hem helemaal rechts */
+  justify-content: flex-end; 
+  width: 100%;           
+  text-align: right;      
   margin-bottom: 2em; 
-  padding: 0;    /* Ruimte onder het kruisje */ 
+  padding: 0;    
 }
+
 header nav ul:first-of-type li:first-of-type button {
-  display: block;
   background-color: transparent;
   border: none;
   padding: 0;
   cursor: pointer;
 }
 
-header nav.toonMenu {
-  translate: 0% 0%;
-}
 /*grote links in menu*/
 header nav ul:first-of-type li:nth-of-type(2),
 header nav ul:first-of-type li:nth-of-type(3),
 header nav ul:first-of-type li:nth-of-type(4),
 header nav ul:first-of-type li:nth-of-type(5) {
-  display: block;
-  font-size: 1em;      
+  font-size: 0.9em;      
+  font-stretch: expanded;
   color: black;
   text-decoration: none;
   margin-bottom: 1.5em;
@@ -221,64 +211,28 @@ header nav ul:first-of-type li:nth-of-type(8) a,
 header nav ul:first-of-type li:nth-of-type(9) a,
 header nav ul:first-of-type li:nth-of-type(10) a{
   display: block;
-    font-size: 1em;       /* Iets kleiner */
-       /* Nog steeds dik, maar minder */
-    color: black;
-    text-decoration: none;
-    margin-bottom: 1em;
+  font-size: 1.3em;  
+  font-stretch: condensed;     
+  color: black;
+  text-decoration: none;
+  margin-bottom: 1em;
 }
 
 /*ruimte tussen grote linkjes en kleine linkjes*/
 header nav ul:first-of-type li:nth-of-type(6) {
-  margin-top: 2.5em; 
+  margin-top: 2.5em;
 }
 
 /*social media icoontjes onderaan menu*/
 header nav ul:last-of-type {
-    display: flex;          /* Zet ze naast elkaar */
-    gap: 1em;               /* Ruimte tussen de icoontjes */
-    margin-top: 3em;        /* Ruimte boven de icoontjes */
+    display: flex;          
+    gap: 1em;             
+    margin-top: 3em;        
 }
 
 header nav ul:last-of-type img {
-    width: 1em;
+    width: 1.5em;
 }
-
-/*bron voor responsive menu: https://codepen.io/shooft/pen/VwJXNEg*/
-
-
-/*@media (min-width:38em){
-  header > button {
-    display: none;
-  }
-
-nav {
-  position: static;
-  translate: unset;
-  padding: 0;
-  background: none;
-}
-
-nav button{
-  display: none;
-}
-
-nav ul {
-  display: flex;
-  gap: 1em;
-}
-
-nav a {
-  flex-direction: column;
-  border: none;
-}
-
-header > a:last-of-type {
-  flex-direction: column;
-}
-}
-*/
-
 
 /*h-elementen*/
 
@@ -287,27 +241,11 @@ h2 {
   font-size: 2em;
   line-height: 1;
   text-align: center;
-  
-}
-
-/*sections*/
-
-section:nth-of-type(2) {
-  background-color: var(--color-yellow);
-}
-
-section:nth-of-type(3) {
-  background-color: var(--color-yellow);
-}
-
-footer {
-  background-color: var(--color-orange);
 }
 
 /************/
 /* SECTION PROGRAM */
 /************/
-
 
 section:first-of-type h2{
   font-family: var(--font-secondary);
@@ -325,105 +263,38 @@ section:first-of-type h3{
   font-size: 1em;
 }
 
-#program > img {
-  width: 26em;
+main > section > img {
+  display: block; /*zonder dit, ruimte tussen img en balk*/
+  width: 100%;
   height: 25em;
-  object-fit: cover;
-  display: block; /*daardoor verdwijnt de ruimte eronder*/
-  max-width: 100%;
 }
 
-section:first-of-type a{
-  text-decoration: none;
-}
+/*horziontale scroll balk*/
 
-/************/
-/* CAROUSEL */
-/************/
-
-/* outer wrapper */
-.carousel1 {
-	width: 100%;
-}
-
-/* inner wrapper */
-section:first-of-type ul {
-	display: flex;
-	gap: 1em;
-	overflow-x: scroll;
-	scroll-snap-type: x mandatory;
-	scroll-behavior: smooth;
-	-webkit-overflow-scrolling: touch;
-  
-}
-section:first-of-type ul::-webkit-scrollbar {
-	display: none;
-}
-
-/* item */
-section:first-of-type li {
-	flex: 0 0 auto;
-	scroll-snap-align: center;
-	/* beetje padding (top+bottom) voor transform scale anders snijd de overflow het af */
-	padding-block: 0.25em;
-}
-
-section:first-of-type a {
-	text-decoration: none;
-	/* grid trucje 2 items op elkaar kunnen zonder position: absolute;, hierdoor is de tekst nog steeds zichtbaar voor screenreaders */
-	position: relative;
-	display: grid;
-}
-
-section:first-of-type li h3 {
-	margin: 1em;
-	z-index: 2;
-	/* grid trucje 2 items op elkaar kunnen zonder position: absolute;, hierdoor is de tekst nog steeds zichtbaar voor screenreaders */
-	grid-area: 1 / 1;
-	align-self: flex-end;
-}
-
-section:first-of-type li img {
-	border-radius: 1em;
-	width: 16em;
-  height: auto;
-	transition: 0.2s ease-in-out;
-	transition-property: border-radius, transform;
-  filter: brightness(80%);
-
-	/* grid trucje 2 items op elkaar kunnen zonder position: absolute;, hierdoor is de tekst nog steeds zichtbaar voor screenreaders */
-	grid-area: 1 / 1;
-}
-section:first-of-type li:hover img {
-	border-radius: 0;
-	transform: scale(1.02);
-}
-
-
-/*youtube link uitleg voor @keyframes: https://www.youtube.com/watch?v=HZHHBwzmJLk*/
-/*bron: chatgpt*/
-#program section {
-  overflow: hidden;
-  white-space: nowrap;
-  background-color: var(--color-green); 
-  height: 3em;
+/*youtube link uitleg van dlo voor @keyframes en animatie: https://www.youtube.com/watch?v=HZHHBwzmJLk*/
+main > section > section {
   display: flex;
   align-items: center;
+  overflow: hidden;
+  white-space: nowrap; /* zorgt dat de zin niet afgebroken wordt, bron:https://css-tricks.com/almanac/properties/w/whitespace/*/
+  background-color: var(--color-green); 
+  height: 3em;
 }
-
-#program section > p {
-  display: inline-flex;
+ 
+main > section > section > p {
+  display: flex;
   align-items: center;
-  gap: .4em;
-  animation: scroll-text 100s linear infinite;
+  gap: 0.4em;
+  animation: scroll-text 100s;
+  animation-iteration-count: infinite;
   font-family: var(--font-secondary);
   font-size: 2.1em;        
   text-transform: uppercase;
 }
 
-#program section > p > img {
+main > section > section > p > img {
   height: 0.6em;
-  width: auto;
+  width: 100%;
 }
 
 @keyframes scroll-text {
@@ -435,10 +306,71 @@ section:first-of-type li:hover img {
   }
 }
 
-ul {
-  list-style: none;
+/*letters op de img*/
+section:first-of-type a{
+  text-decoration: none;
 }
 
+/************/
+/* CAROUSEL PROGRAM */
+/************/
+
+main > section {
+  width: 100%;
+  overflow: hidden;
+}
+
+/* item */
+section:first-of-type a {
+  display: grid;       
+  position: relative;
+  text-decoration: none;
+  overflow: hidden;    
+  border-radius: 1em;  
+}
+
+/* lijst */
+section:first-of-type ul {
+  display: flex;       
+  gap: 1em;            
+  padding: 0;
+  margin: 0;
+  list-style: none;  
+  width: 100%; 
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory; /* daardoor springt de img naar het midden nadat je klaar bent met scrollen. bron: https://codepen.io/shooft/pen/QwjQGZe */
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+
+section:first-of-type li {
+  scroll-snap-align: center;
+}
+
+/* afbeelding en tekst */
+section:first-of-type li img,
+section:first-of-type li h3 {
+  grid-area: 1 / 1;  
+}
+
+/* afbeelding */
+section:first-of-type li img {
+  width: 16em;
+  height: auto;    
+  filter: brightness(80%);
+}
+
+/* h3 */
+section:first-of-type li h3 {
+  z-index: 2;          
+  align-self: end;     
+  justify-self: start; 
+  margin: 1em;     
+  color: white;      
+  font-family: var(--font-secondary); 
+}
+
+/*see full line up*/
 section:first-of-type > a:last-of-type{
   font-family: var(--font-secondary);
   font-size: 1.4em;
@@ -448,7 +380,7 @@ section:first-of-type > a:last-of-type{
   text-decoration: none;
   color: var(--color-black);
   text-transform: uppercase;
-  transform: scaleX(0.6);
+  font-stretch: condensed;
   padding-bottom: 2.5em;
   padding-top: 4em;
 }
@@ -462,140 +394,118 @@ section:nth-of-type(2) {
 }
 
 section:nth-of-type(2) h2 {
-  font-size: 1.5em;
+  font-size: 2em;
+  font-stretch: expanded;
   font-family: var(--font-secondary);
   padding-bottom: 0em;
   padding-top: 1em;
-  margin-block: 0em 0em;
 }
 
 /************/
 /* CAROUSEL2 NEWS */
 /************/
 
-/* inner wrapper */
-
 section:nth-of-type(2) {
   padding-top: 1em;
 }
 
-section:nth-of-type(2) ul {
+section:nth-of-type(2) > ul {
   display: flex;
   gap: 1em;
-  overflow-x: scroll;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
   padding: 2em 1.5em;
-  
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory; /* daardoor springt de img naar het midden nadat je klaar bent met scrollen. bron: https://codepen.io/shooft/pen/QwjQGZe */
+  scroll-behavior: smooth;
+  scrollbar-width: none;
 }
-section:nth-of-type(2) ul::-webkit-scrollbar {
-  display: none;
-}
+
 /* item */
-section:nth-of-type(2) li {
-  flex: 0 0 auto;
-  scroll-snap-align: center;
-  /* beetje padding (top+bottom) voor transform scale anders snijd de overflow het af */
-  padding-block: 0.25em;
-  overflow-x: hidden;
-  font-family: var(--font-secondary);
-  
+section:nth-of-type(2) > ul > li {
+  min-width: 27em;
+  scroll-snap-align: center; /* hoort bij scroll-snap-type */
+  padding-block: 0.25em;  
+  list-style: none; 
 }
+
+/* link */
 section:nth-of-type(2) a {
   text-decoration: none;
-  /* grid trucje 2 items op elkaar kunnen zonder position: absolute;, hierdoor is de tekst nog steeds zichtbaar voor screenreaders */
+  color: inherit;
   position: relative;
   display: grid;
-  width: 20em;
-  height: 29em;
   overflow: hidden;
   border-radius: 0.5em;
-  transition: 0.2s ease-in-out;
-  transition-property: border-radius, transform;
-}
-section:nth-of-type(2) li h3 {
-  margin: 0;
-  margin-left: 1em;     /* Iets minder ver links dan de p (optioneel) */
-  margin-right: 1em;    /* Zodat hij niet rechts eraf valt */
-  margin-bottom: 3.5em;
-  z-index: 3;
-  /* grid trucje 2 items op elkaar kunnen zonder position: absolute;, hierdoor is de tekst nog steeds zichtbaar voor screenreaders */
-  grid-area: 1 / 1;
-  align-self: flex-end;
-  padding-bottom: 2em;
-  font-size: 1.5em;
-  width: 60%;
-  color: var(--color-white);
-  font-family: var(--font-secondary);
-}
-section:nth-of-type(2) li p {
-  z-index: 2;
-  grid-area: 1 / 1;
-  margin: 1em;
-  color: var(--color-white);
-  font-family: var(--font-secondary);
-  
+  height: 100%;
+  width: 100%;
 }
 
-section:nth-of-type(2) li div {
-  z-index: 2;
-  grid-area: 1 / 1;
-  align-self: flex-start;
+section:nth-of-type(2) a img,
+section:nth-of-type(2) a h3,
+section:nth-of-type(2) a p,
+section:nth-of-type(2) a ul {
+  grid-area: 1 / 1; 
+}
+
+section:nth-of-type(2) li a ul {
+  align-self: start;      
   margin: 1em;
+  z-index: 10;
+  pointer-events: none;
   display: flex;
-  gap: 3.5em;
+  gap: 8em;
   justify-content: center;
+  list-style: none;       
 }
 
-/*'news' tussen de getallen*/  
-.carousel1 div p:nth-of-type(2) {
-  transform: scaleY(2);
-  
-  padding-top: 0.9em;
-  font-size: 0.8em;
+/*news*/
+section:nth-of-type(2) ul li a ul li:nth-of-type(2) {
+  font-size: 1.5em;
+  margin-top: 0.6em;
+  font-stretch: condensed;
+  font-family: var(--font-secondary); 
+  color: var(--color-white);
 }
 
-/*de getallen naast 'news'*/
-section:nth-of-type(2) ul li a div p:first-of-type,
-section:nth-of-type(2) ul li a div p:last-of-type {
-  font-size: 1.7em;
-  line-height: 2.5;   /* Zorgt dat de regel niet hoog wordt en dingen wegduwt */
-  margin: 0;          /* Zeker weten dat er geen marge omheen zit */
-  padding: 0;
-  transform: scaleX(1.2);
- 
+/* nummers */
+section:nth-of-type(2) li a ul li:first-of-type,
+section:nth-of-type(2) li a ul li:last-of-type {
+  font-size: 1.7em;      
+  margin-top: 0.6em;  
+  font-stretch: expanded; 
+  font-family: var(--font-secondary); 
+  color: var(--color-white);
 }
+
+/* h3 */
+section:nth-of-type(2) li a h3 {
+  align-self: end;        
+  z-index: 3;          
+  width: 80%;
+  font-size: 1.5em;
+  margin: 0 1em 1.5em 1em; 
+  padding-bottom: 2em;
+  font-family: var(--font-secondary); 
+  color: var(--color-white);
+}
+
 /*read more*/
-section:nth-of-type(2) ul> li > a > p {
+section:nth-of-type(2) ul > li > a > p {
+  align-self: end;         
   z-index: 2;
-  position: relative;
-  grid-area: 1 / 1;
-  margin: 0;            /* Reset eerst alle marges */
-  margin-left:1.5em;   /* Afstand van links */
-  margin-bottom: 5em;
-  align-self: flex-end;
+  margin: 0 0 2em 1.5em; 
   text-transform: uppercase;
-  transform: scaleX(0.6);
-  transform-origin: left; /*bron:chatgpt*/
+  font-stretch: condensed;
+  font-family: var(--font-secondary); 
+  color: var(--color-white);
 }
 
+/* img */
 section:nth-of-type(2) li img {
-  border-radius: 2em;
-  width: fit-content
-  
-  transition-property: border-radius, transform;
-  /* grid trucje 2 items op elkaar kunnen zonder position: absolute;, hierdoor is de tekst nog steeds zichtbaar voor screenreaders */
-  grid-area: 1 / 1;
-  object-fit: cover;
+  width: 100%;
+  height: 100%;          
+  border-radius: 2em;     
   filter: brightness(80%);
-  position: relative; /* Nodig om z-index te laten werken (tenzij het een grid-child is, dan werkt het soms direct) */
-  z-index: 1;
-  
-}
-section:nth-of-type(2) li:hover img {
-  border-radius: 0;
-  transform: scale(1.02);
+  z-index: 1;             
 }
 
 /************/
@@ -609,7 +519,7 @@ section:nth-of-type(3) {
 section:nth-of-type(3) h2 {
   padding-bottom: 0.7em;
   text-align: left;
-  font-stretch: expanded;
+  font-stretch: expanded; /*bron:https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/font-stretch */
   font-size: 2em;
   font-family: var(--font-secondary);
 }
@@ -619,7 +529,7 @@ section:nth-of-type(3) p {
   font-size: 1.8em;
   padding-left: 0.1em;
   padding-right: 0.1em;
-  max-width: 100%;
+  width: 100%;
   line-height: 1.05em;
   padding-bottom: 0.9em;
 }
@@ -649,13 +559,9 @@ section:nth-of-type(3) {
   padding: 2em 1em;
 }
 
-/* ik wist niet hoe je de checkbox moest aanspreken, dit heb ik gevraagd aan chat*/
-
-form input[type="checkbox"] {
+form input[type="checkbox"] { /* bron: https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input/checkbox > ik wist niet hoe je de checkbox moest aanspreken*/
   width: 0.8em; 
   height: auto; 
-  
-  align-self: flex-start;
   margin-bottom: 0;
   padding-right: 0.5em;
 }
@@ -671,14 +577,12 @@ section:nth-of-type(3) form label:nth-of-type(4) {
 section:nth-of-type(3) form button {
   padding: 0.9em;
   border-radius: 1.5em;
- 
   font-family: var(--font-primary);
   text-transform: uppercase;
   font-size: 1.2em;
   color: var(--color-text);
   background-color: var(--color-blue);
   border: solid 0.07em;
-  
 }
 
 /************/
@@ -692,11 +596,8 @@ footer {
     padding-top: 0;       
 }
 
-/* HET EERSTE LOGO */
-footer > a:first-of-type {
-    display: block;       /* Maakt de link een blok, verwijdert tekst-ruimte */
-    line-height: 0;       
-    margin-top: 0;
+/* eerste logo */
+footer > a:first-of-type {       
     padding-top: 1em;
 }
 
@@ -706,37 +607,31 @@ footer > a:first-of-type img {
     margin-top: 0;        
 }
 
-/* DE TWEEDE AFBEELDING */
+/* tweede logo */
 footer > img {
     width: 10em;
-    display: block;
     margin: 2em auto;    
     padding-top: 2em; 
     padding-bottom: 2em;
 }
 
-/*  UL */
+/* ul */
 footer ul {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start; 
-    align-content: flex-start;
-    width: fit-content;   
+    flex-wrap: wrap; 
+    justify-content: center;   
     gap: 2.4em 4em;
     list-style: none;
     padding-top: 0;
-    padding-left: 2.2em;
     padding-bottom: 2em;
     margin: 0;            
-    box-sizing: border-box;
-    max-width: 100%;
+    box-sizing: border-box; 
 }
-/* DE ICOONTJES */
+
+/* social media icoontjes */
 footer li img {
-    width: 1.5em;
-    height: auto;
-    display: block;      
-    margin: 0;            
+    width: 2.5em;
+    height: auto;           
 }
 
 footer ul li {
@@ -744,68 +639,53 @@ footer ul li {
 }
 
 /*onderste gedeelte footer */
-/* Container instellingen */
 .footer-info {
-    position: static; 
-    
-    /* De Flexbox indeling */
-    width: 100%;
     display: flex;
-    flex-wrap: wrap;       /* Zorgt dat items op de volgende regel mogen vallen */
+    flex-wrap: wrap;   
     text-align: left;
     margin-top: 1em;
     box-sizing: border-box;
-    margin-left: 2em;
     margin-bottom: 1em;
+    width: 100%;
+    padding-left: 1em;
 }
 
-/* 1. Copyright (De eerste P) */
+/* copyright */
 .footer-info p:first-of-type {
     width: 45%;      
     margin: 0;
     margin-bottom: 0.5em;
-    
     font-family: var(--font-primary);
     font-size: 0.7em;
     color: var(--color-text);
 }
 
-/* 2. Legal Policies (De A die direct in nav zit) */
+/* legal policies */
 .footer-info > a {
-    width: 20%;            /* Pakt 40% breedte (rechts) */
+    width: 20%;           
     font-family: var(--font-primary);
     font-size: 0.7em;
     color: var(--color-text);
     text-decoration: none;
     box-sizing: border-box;
-    padding-left: 1.5em;     /* Beetje afstand zodat het niet tegen copyright aan plakt */
+    padding-left: 1.5em;     
 }
 
-/* 3. Website by (De tweede P) */
+/* website by */
 .footer-info p:nth-of-type(2) {
-    width: 100%;           /* Pakt de VOLLE breedte -> dwingt nieuwe regel */
+    width: 100%;           
     margin: 0;
-    
     font-family: var(--font-primary);
     font-size: 0.7em;
     color: var(--color-text);
 }
 
-/* Het plaatje in de 'Website by' tekst */
+/* img bij website by  */
 .footer-info p:nth-of-type(2) img {
     height: 0.8em;
     width: auto;
     margin-left: 0.3em;
-    
 }
-
-
-
-
-
-
-
-
 
 /************/
 /* SEF PAGINA */
@@ -824,65 +704,56 @@ footer ul li {
 .sefpagina main section h1 {
   font-family: var(--font-secondary);
   font-size: 2.8em;
-  text-align: start;
-  margin-top: 1em;
-  margin-bottom: 0;
-  margin-left: 0.3em;
-  padding-bottom: 0;
+  margin-top: 2em;
   font-stretch: expanded;
-  line-height: 0.9;
+
+  margin-inline: auto;
+  width: 90%;
 }
 
-.sefpagina main section h2 {
+.sefpagina main section h2:first-of-type {
   font-family: var(--font-secondary);
   font-size: 1.5em;
-  text-align: start;
-  margin-left: 0.5em;
-  margin-top: 0;
   padding-top: 0.4em;
-  padding-bottom: 0;
-  
+  padding-bottom: 0.5em;
   text-transform: uppercase;
-}
-/*h2 onder SEF*/
-.sefpagina main section h2:first-of-type {
-  width: 95%;
+  margin-inline: auto;
+  width: 90%;
+  text-align: left;
 }
 
-.sefpagina main section ul {
+/*social icoontjes */
+.sefpagina main > section > ul {
+  width: 90%;
   display: flex;
-  gap: 8em;
   list-style: none;
-  margin-top: 0em;
-  margin-left: 0;
-  padding-left: 0;
   padding-bottom: 2em;
-  justify-content: center;
+  align-self: center;
+  justify-content: space-around;
+  padding-left: 0;
+  margin-inline: auto; /*bron > ik kreeg de ul niet in het midden gecentreerd, heb dit gevraagd aan ai en die kwam met oplossing marigin inline*/
 }
+
 
 .sefpagina main section ul li img {
   width: 1.3em;
   height: auto;
-  border-radius: 0;
-  display: block;
-  justify-content: space-between;
-  
+  border-radius: 0; /*als ik dit eruit laat dan komt er border radius op de img's, weet niet waarom*/
 }
 
 .sefpagina main section > img {
   border-radius: 1.5em 1.5em;
   display: flex;
   margin: 0 auto;
-  width: 20em;
+  width: 90%;
   height: auto;
-  max-width: 100%;
-  
 }
+
 /*'saturday 13'*/
 
 .sefpagina main section h2:nth-of-type(2) {
-  margin-top: 1.5em;
-  margin-bottom: 1.5em;
+  font-size: 1.5em;
+  font-family: var(--font-secondary);
   text-align: center;
   font-stretch: condensed;
   margin-left: 0;
@@ -890,19 +761,17 @@ footer ul li {
 
 .sefpagina main section > h3 {
   color: var(--color-black);
-  font-size: 1.1em;
+  font-size: 1.5em;
   text-align: start;
   margin-left: 0.7em;
-  margin-top: 0;
-  padding-top: 0.4em;
+  
   padding-bottom: 1.5em;
-  max-width: 90%;
+  width: 90%; 
 }
 
 .sefpagina main section p {
   font-family: var(--font-primary);
   font-size: 1.2em;
-  line-height: 1.2em;
   margin-left: 0.7em;
   margin-right: 0.5em;
   padding-bottom: 2em;
@@ -912,34 +781,33 @@ footer ul li {
   display: block;
   margin: 0 auto;
   border-radius: 0.5em;
-  width: 20em;
+  width: 90%;
   height: auto;
-  max-width: 100%;
-
 }
 
 .sefpagina main section iframe:nth-of-type(2) {
   display: block;
   margin: 2em auto;
   border-radius: 0.5em;
-  width: 20em;
-  height: 18em;
-  max-width: 100%;
+  width: 90%;
+  height: 22em;
 }
 
 /************/
 /* hier moet Horizontale balk sefpagina */
 /************/
 
+/*tweede secti*/
+
 .sefpagina section:nth-of-type(2) {
   background-color: var(--color-orange);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .sefpagina section:nth-of-type(2)>h2 {
-  width: 90%;
-  max-width: 9em;
-  margin: 0.5em auto; 
-  box-sizing: border-box;
+  margin: 0.5em; 
   text-align: center;
   font-size: 1.8em;
   font-family: var(--font-secondary);
@@ -948,35 +816,30 @@ footer ul li {
 
 /*GORILLAZ AFBEELDING*/
 
-.sefpagina section > a {
-    position: relative;
-    display: block;
+.sefpagina section:nth-of-type(2) > a {
+  position: relative;
     width: 90%;
     height: auto;
-    margin: 20px auto;
     text-decoration: none;
     border-radius: 1.5em;
 }
 
-.sefpagina section > a > img {
-    display: block;
-    max-width: 100%;
-    height: auto;
+.sefpagina section:nth-of-type(2) > a > img {
     filter: brightness(80%); /*bron: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/filter-function/brightness*/
 }
 
-.sefpagina section > a > h3,
-.sefpagina section > a > p {
+.sefpagina section:nth-of-type(2) > a > h3,
+.sefpagina section:nth-of-type(2) > a > p {
     position: absolute;
-    left: 1.25rem;
+    left: 1.25rem; /*ik heb hierboven rem gebruikt, omdat ik dan de h3 en de p gelijk kan uitlijnen met de afbeelding.*/
     color: white;
     margin: 0;
     z-index: 2;
     text-align: left;
+    width: 70%;
 }
-/*ik heb hierboven rem gebruikt, omdat ik dan de h3 en de p gelijk kan uitlijnen met de afbeelding.*/
 
-.sefpagina section > a > h3 {
+.sefpagina section:nth-of-type(2) > a > h3 {
     font-family: var(--font-secondary);
     font-stretch: expanded;
     bottom: 2em;
@@ -984,152 +847,73 @@ footer ul li {
     text-transform: uppercase;
 }
 
-.sefpagina section > a > p {
+.sefpagina section:nth-of-type(2) > a > p {
     bottom: 0em;
     font-family: var(--font-primary);
     font-size: 1.2em;
-    max-width: 80%;
 }
 
-/************/
-/* ONDER GORILLAZ AFBEELDING */
-/*
-.sefpagina section:nth-of-type(2) > p {
-  font-family: var(--font-primary);
-  font-size: 1.2em;
-  margin: 0 auto;
-  text-align: start;
-  max-width: 90%;
-  padding-bottom: 2em;
+/* onder de img   */
+
+/*sunday*/
+.sefpagina main section:nth-of-type(2) > p {
+  margin-top: 1em;
+  width: 90%;
 }
 
-.sefpagina section:nth-of-type(2) ul {
-  display: block;
-  list-style: none;
-  margin: 0 auto;
-  padding: 0;
-}
-
-.sefpagina section:nth-of-type(2) ul li {
-  display: block;
-  width: auto;
-  margin: 0 1em;    
-  padding-left: 1em;  
-  padding-right: 1em;
-  padding-top: 2em;
-  padding-bottom: 2em;
-  
-  padding-top: 2em;
-  border-top: 0.3em solid var(--color-black);
-}
-
-.sefpagina section:nth-of-type(2) ul li h2 {
-  font-size: 2em;
-  padding: 0;
-  margin: 0;
-  line-height: 0.9;
-  max-width: 90%;
-}
-
-.sefpagina section:nth-of-type(2) ul li p  {
-  font-size: 1.2em;
-  font-family: var(--font-primary);
-  color: var(--color-black);
-  padding-bottom: 0;
-} 
-
-.sefpagina section:nth-of-type(2) ul li h3 {
-  font-size: 1.3em;
-  font-family: var(--font-secondary);
-  color: var(--color-black);
-  font-weight: var(--font-weight-bold);
-  padding-bottom: 0.5em;
-}
-
-.sefpagina section:nth-of-type(2) ul li:last-of-type {
-  border-bottom: 0.3em solid var(--color-black);
-}
-*/
-.sefpagina section:nth-of-type(2) > p {
-  font-family: var(--font-primary);
-  font-size: 1.2em;
-  margin: 0 auto;
-  text-align: start;
-  padding-bottom: 1.5em;
-  padding-left: 1.5em;
-}
-/* 1. De Lijst Container */
-.sefpagina section:nth-of-type(2) ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: block;
-}
-
-/* 2. De Items (Hier regelen we de lijnen en de ruimte) */
-.sefpagina section:nth-of-type(2) ul li {
-    display: block;
+/* ul */
+.sefpagina main section:nth-of-type(2) ul {
+    list-style: none;     
+    padding: 2em;
+    display: flex;
+    flex-direction: column;
     box-sizing: border-box;
-
-    /* A. DE LIJNEN: Margin zorgt dat de lijn de rand van het scherm NIET raakt */
-    /* 0 boven/onder, 1.5em links/rechts */
-    margin: 0 1.5em; 
-    
-    /* B. DE BORDER: De lijn boven elk item */
-    border-top: 0.3em solid var(--color-black); /* Aangepast naar jouw var */
-
-    /* C. DE TEKST POSITIE: Padding duwt de tekst naar binnen t.o.v. de lijn */
-    /* 2em ruimte boven/onder de tekst, 1em ruimte links/rechts van de tekst */
-    padding: 1em 0.5em; 
+    gap: 1em;
 }
 
-/* 3. Zorg dat het LAATSTE item een lijn aan de onderkant krijgt */
-.sefpagina section:nth-of-type(2) ul li:last-of-type {
+/* li */
+.sefpagina main section:nth-of-type(2) li {
+    display: flex;
+    flex-direction: column;
+    border-top: 0.3em solid var(--color-black);
+    padding: 1em;
+}
+
+/* laatste border */
+.sefpagina main section:nth-of-type(2) ul li:last-of-type {
     border-bottom: 0.3em solid var(--color-black);
-    margin-bottom: 3em;
+    margin-bottom: 2em;
 }
 
-/* 4. UITLIJNING RESETTEN (Cruciaal!) */
-/* We resetten de padding van alle teksten naar 0. 
-   Omdat ze in de 'li' zitten die al padding heeft (regel C), 
-   staan ze nu allemaal kaarsrecht onder elkaar. */
-.sefpagina section:nth-of-type(2) ul li h2,
-.sefpagina section:nth-of-type(2) ul li p,
-.sefpagina section:nth-of-type(2) ul li h3 {
-    padding-left: 0; 
-    margin-left: 0;
-    margin-right: 0;
-}
-
-/* 5. De specifieke stijlen per tekst */
-.sefpagina section:nth-of-type(2) ul li h2 {
+/* De Titel */
+.sefpagina main section:nth-of-type(2) ul li h2 {
     font-size: 2em;
     line-height: 0.9;
-    text-transform: uppercase;
-    font-weight: 900;
-    max-width: 90%;
-    margin-top: 0;
-    margin-bottom: 0.2em;
-    padding-left: 1.3em;
+    text-transform: uppercase; 
+    width: 90%;
+    color: var(--color-black);
+    margin: 0 0 0.2em 0;
+    padding: 0;
 }
 
-.sefpagina section:nth-of-type(2) ul li p {
+/* beschrijving */
+.sefpagina main section:nth-of-type(2) ul li p {
+    font-family: var(--font-primary);
     font-size: 1.2em;
-    font-family: var(--font-primary); /* Aangepast naar jouw var */
     color: var(--color-black);
-    margin-top: 0;
-    margin-bottom: 0em;
-    padding-bottom: 1em;
-} 
-
-.sefpagina section:nth-of-type(2) ul li h3 {
-    font-size: 1.3em;
-    font-family: var(--font-secondary);
-    color: var(--color-black);
-    font-weight: var(--font-weight-bold);
-    margin: 0;
-    padding-bottom: 1.5em;
+    margin: 0 0 1em 0;
+    padding: 0;
 }
+
+/* dag */
+.sefpagina main section:nth-of-type(2) ul li h3 {
+    font-family: var(--font-secondary);
+    font-size: 1.3em;
+    color: var(--color-black);
+    margin: 0 0 1.5em 0;
+    padding: 0;
+}
+
 /************/
 /* footer SEFPAGINA */
 /************/

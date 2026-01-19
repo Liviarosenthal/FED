@@ -19,3 +19,4 @@ function sluitMenu() {
     deNav.classList.remove("toonMenu");
 }
 
+//bron:https://codepen.io/shooft/pen/myepoJo  
