@@ -1,6 +1,3 @@
-// JavaScript Document
-console.log("hi");
-
 //menu variables
 const openButton = document.querySelector("header > button");
 const sluitButton = document.querySelector("nav button");
