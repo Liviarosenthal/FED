@@ -115,12 +115,7 @@ Nb. Door *open* toe te voegen aan een *details* element kun je deze standaard op
 
 
   ### Verslag van meeting
-  hier na afloop snel de uitkomsten van de meeting vastleggen
-
-  - punt 1
-  - punt 2
-  - nog een punt
-  - ...
+  bij het eerste voorgangsgesprek werd er vooral gefocust op de html structuur. Bij mij was die bijna helemaal volledig. Er zaten een paar foutjes in, zoals een h3 die geen h3 moest zijn, maar een p. 
 
 </details>
 
@@ -148,12 +143,7 @@ Nb. Door *open* toe te voegen aan een *details* element kun je deze standaard op
 
 
   ### Verslag van meeting
-  hier na afloop snel de uitkomsten van de meeting vastleggen
-
-  - punt 1
-  - punt 2
-  - nog een punt
-- ...
+  Bij voortgang 2 had ik een paar vragen opgesteld, dat ging vooral over hoever het overeen moest komen met de originele website. en ik had een vraag over de nav. Bleek dat ik de maten niet goed had gezet. 
 
 </details>
 
@@ -195,12 +185,7 @@ Nb. Door *open* toe te voegen aan een *details* element kun je deze standaard op
 
 
   ### Verslag van meeting
-  hier na afloop snel de uitkomsten van de meeting vastleggen
-
-  - punt 1
-  - punt 2
-  - nog een punt
-  - ...
+ bij dit voorgangsgeprek was ik niet bij. 
 
 </details>
 
@@ -214,19 +199,31 @@ Nb. Door *open* toe te voegen aan een *details* element kun je deze standaard op
   <summary>uitwerken voor eindgesprek</summary>
 
   ### Je uitkomst - karakteristiek screenshots:
-  <img src="readme-images/dummy-plaatje.jpg" width="375px" alt="uitomst opdracht 1">
-
+  <img src="readme-images/homepagina1.png" width="375px" alt="homepagina">
+  <img src="readme-images/homepagina2.png" width="375px" alt="homepagina">
+  <img src="readme-images/sefpagina1.png" width="375px" alt="sef">
+  <img src="readme-images/sefpagina2.png" width="375px" alt="sef">
+  <img src="readme-images/sefpagina3.png" width="375px" alt="sef">
 
   ### Dit ging goed/Heb ik geleerd: 
-  Korte omschrijving met plaatjes
+  Ik vind dit een super lastig vak en ik ben dus eigenlijk best blij met veel van wat ik heb gemaakt. 
+  Maar om er twee uit te lichten; Ik ben tevreden over hoe het menu is uitgepakt en vooral omdat ik dacht dat het veel lastiger zou zijn. 
+  Ook ben ik tevreden over de horizontale groene balk op de homepagina. met hulp van bronnen en zelf goed nadenken 
+  is dat gelukt.  
 
-  <img src="readme-images/dummy-plaatje.jpg" width="375px" alt="top">
+  <img src="readme-images/scherm­afbeelding-navmenu.png" width="375px" alt="menu">
+  <img src="readme-images/scherm­afbeelding-groenebalk.png" width="375px" alt="groenebalk">
 
 
   ### Dit was lastig/Is niet gelukt:
-  Korte omschrijving met plaatjes
+  Helaas is het mij niet gelukt om de letters op de grote afbeelding te zetten bij de homepage. Ook zijn meerdere animaties niet gelukt. Ik wilde graag dat er een border ontstond onder de h3 bij de carrousels, ook wilde ik 
+  een wishlist op de Gorillaz afbeelding op de sef pagina. En ik wilde dat wanneer je naar beneden scrollt het logo veranderde naar een ander logo en de horizontale balk op de Sef pagina.
 
-  <img src="readme-images/dummy-plaatje.jpg" width="375px" alt="bummer">
+  <img src="readme-images/Scherm­afbeelding-lettersopimg.png" width="375px" alt="lettersopimg">
+  <img src="readme-images/Scherm­afbeelding-lijnonderh3.png" width="375px" alt="lijnonderh3">
+  <img src="readme-images/Scherm­afbeelding-wishlist.png" width="375px" alt="wishlist">
+  <img src="readme-images/Scherm­afbeelding-switchlogo.png" width="375px" alt="switchlogo">
+  <img src="readme-images/Scherm­afbeelding-sefbalk.png" width="375px" alt="sefbalk">
 </details>
 
 
@@ -242,8 +239,19 @@ Nb. Door *open* toe te voegen aan een *details* element kun je deze standaard op
   Nb. ChatGpT en andere AI horen er ook bij.
   Nb. Vermeld de bronnen ook in je code.
 
-  1. bron 1
-  2. bron 2
-  3. ...
+  1. bron 1 font toevoegen css: bron: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@font-face#description
+  2. bron 2 menu: https://codepen.io/shooft/pen/myepoJo
+  3. bron 3 youtube link uitleg van dlo voor @keyframes en animatie: https://www.youtube.com/watch?v=HZHHBwzmJLk
+  4. bron:https://css-tricks.com/almanac/properties/w/whitespace/*/ > white-space: nowrap; /* zorgt dat de zin niet afgebroken wordt, 
+  5. bron: https://codepen.io/shooft/pen/QwjQGZe */scroll-snap-type: x mandatory; /* daardoor springt de img naar het midden nadat je klaar bent met scrollen. 
+  6. bron:https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/font-stretchfont-stretch: expanded;  
+  7. bron: https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input/checkboxform input[type="checkbox"]  > ik wist niet hoe je de checkbox moest aanspreken
+  8. bron > ik kreeg de ul niet in het midden gecentreerd, heb dit gevraagd aan ai en die kwam met oplossing marigin inline 
+  9. bron: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/filter-function/brightness*/ filter: brightness(80%); 
+  10. bron formulier: https://www.w3schools.com/html/html_forms.asp
+  11. bron uitleg Iframe youtube video plakken in code:https://support.google.com/youtube/answer/171780?hl=en 
+  12. bron uitleg Iframe spotify player :https://developer.spotify.com/documentation/embeds/tutorials/creating-an-embed   
+        
+        
 
 </details>
