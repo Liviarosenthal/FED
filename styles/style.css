@@ -247,7 +247,7 @@ h2 {
 /************/
 
 section:first-of-type h2{
-  font-family: var(--font-secondary);
+  font-family: var(--font-secondary); 
   color: var(--color-black);
   padding-bottom: 1.5em;
   padding-top: 1.5em;
