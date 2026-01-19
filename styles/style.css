@@ -13,7 +13,6 @@
 	src: url(../fonts/ABC-Gravity-Variable.ttf) format("truetype");
 } 
 
-
 *, *::after, *::before {
     padding: 0;
     margin: 0;
@@ -267,6 +266,7 @@ main > section > img {
   display: block; /*zonder dit, ruimte tussen img en balk*/
   width: 100%;
   height: 25em;
+  object-fit: cover;
 }
 
 /*horziontale scroll balk*/
@@ -306,11 +306,6 @@ main > section > section > p > img {
   }
 }
 
-/*letters op de img*/
-section:first-of-type a{
-  text-decoration: none;
-}
-
 /************/
 /* CAROUSEL PROGRAM */
 /************/
@@ -333,7 +328,7 @@ section:first-of-type a {
 section:first-of-type ul {
   display: flex;       
   gap: 1em;            
-  padding: 0;
+  padding: 2em 1.5em;
   margin: 0;
   list-style: none;  
   width: 100%; 
@@ -566,6 +561,11 @@ form input[type="checkbox"] { /* bron: https://developer.mozilla.org/en-US/docs/
   padding-right: 0.5em;
 }
 
+section:nth-of-type(3) form input[type="text"] {
+  font-family: var(--font-primary);
+  padding-left: 1em;
+}
+
 section:nth-of-type(3) form label:nth-of-type(3) {
   padding-bottom: 1.2em;
 }
@@ -692,9 +692,6 @@ footer ul li {
 /************/
 
 /*header*/
-
-/*EERSTE SECTIE*/
-
 .sefpagina {
   background-color: var(--color-orange);
   color: var(--color-black);
@@ -706,7 +703,6 @@ footer ul li {
   font-size: 2.8em;
   margin-top: 2em;
   font-stretch: expanded;
-
   margin-inline: auto;
   width: 90%;
 }
@@ -734,11 +730,10 @@ footer ul li {
   margin-inline: auto; /*bron > ik kreeg de ul niet in het midden gecentreerd, heb dit gevraagd aan ai en die kwam met oplossing marigin inline*/
 }
 
-
 .sefpagina main section ul li img {
   width: 1.3em;
   height: auto;
-  border-radius: 0; /*als ik dit eruit laat dan komt er border radius op de img's, weet niet waarom*/
+  border-radius: 0; /*als ik dit eruit laat ,dan komt er border radius op de img's, weet niet waarom*/
 }
 
 .sefpagina main section > img {
@@ -750,7 +745,6 @@ footer ul li {
 }
 
 /*'saturday 13'*/
-
 .sefpagina main section h2:nth-of-type(2) {
   font-size: 1.5em;
   font-family: var(--font-secondary);
@@ -764,7 +758,6 @@ footer ul li {
   font-size: 1.5em;
   text-align: start;
   margin-left: 0.7em;
-  
   padding-bottom: 1.5em;
   width: 90%; 
 }
@@ -797,8 +790,7 @@ footer ul li {
 /* hier moet Horizontale balk sefpagina */
 /************/
 
-/*tweede secti*/
-
+/*tweede sectie*/
 .sefpagina section:nth-of-type(2) {
   background-color: var(--color-orange);
   display: flex;
@@ -815,111 +807,109 @@ footer ul li {
 }
 
 /*GORILLAZ AFBEELDING*/
-
 .sefpagina section:nth-of-type(2) > a {
   position: relative;
-    width: 90%;
-    height: auto;
-    text-decoration: none;
-    border-radius: 1.5em;
+  width: 90%;
+  height: auto;
+  text-decoration: none;
+  border-radius: 1.5em;
 }
 
 .sefpagina section:nth-of-type(2) > a > img {
-    filter: brightness(80%); /*bron: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/filter-function/brightness*/
+  filter: brightness(80%); /*bron: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/filter-function/brightness*/
 }
 
 .sefpagina section:nth-of-type(2) > a > h3,
 .sefpagina section:nth-of-type(2) > a > p {
-    position: absolute;
-    left: 1.25rem; /*ik heb hierboven rem gebruikt, omdat ik dan de h3 en de p gelijk kan uitlijnen met de afbeelding.*/
-    color: white;
-    margin: 0;
-    z-index: 2;
-    text-align: left;
-    width: 70%;
+  position: absolute;
+  left: 1.25rem; /*ik heb hierboven rem gebruikt, omdat ik dan de h3 en de p gelijk kan uitlijnen met de afbeelding.*/
+  color: white;
+  margin: 0;
+  z-index: 2;
+  text-align: left;
+  width: 70%;
 }
 
 .sefpagina section:nth-of-type(2) > a > h3 {
-    font-family: var(--font-secondary);
-    font-stretch: expanded;
-    bottom: 2em;
-    font-size: 2.5em;
-    text-transform: uppercase;
+  font-family: var(--font-secondary);
+  font-stretch: expanded;
+  bottom: 2em;
+  font-size: 2.5em;
+  text-transform: uppercase;
 }
 
 .sefpagina section:nth-of-type(2) > a > p {
-    bottom: 0em;
-    font-family: var(--font-primary);
-    font-size: 1.2em;
+  bottom: 0em;
+  font-family: var(--font-primary);
+  font-size: 1.2em;
 }
 
 /* onder de img   */
 
 /*sunday*/
 .sefpagina main section:nth-of-type(2) > p {
-  margin-top: 1em;
-  width: 90%;
+margin-top: 1em;
+width: 90%;
 }
 
 /* ul */
 .sefpagina main section:nth-of-type(2) ul {
-    list-style: none;     
-    padding: 2em;
-    display: flex;
-    flex-direction: column;
-    box-sizing: border-box;
-    gap: 1em;
+list-style: none;     
+padding: 2em;
+display: flex;
+flex-direction: column;
+box-sizing: border-box;
+gap: 1em;
 }
 
 /* li */
 .sefpagina main section:nth-of-type(2) li {
-    display: flex;
-    flex-direction: column;
-    border-top: 0.3em solid var(--color-black);
-    padding: 1em;
+display: flex;
+flex-direction: column;
+border-top: 0.3em solid var(--color-black);
+padding: 1em;
 }
 
 /* laatste border */
 .sefpagina main section:nth-of-type(2) ul li:last-of-type {
-    border-bottom: 0.3em solid var(--color-black);
-    margin-bottom: 2em;
+border-bottom: 0.3em solid var(--color-black);
+margin-bottom: 2em;
 }
 
-/* De Titel */
+/* titel */
 .sefpagina main section:nth-of-type(2) ul li h2 {
-    font-size: 2em;
-    line-height: 0.9;
-    text-transform: uppercase; 
-    width: 90%;
-    color: var(--color-black);
-    margin: 0 0 0.2em 0;
-    padding: 0;
+font-size: 2em;
+text-transform: uppercase; 
+width: 90%;
+color: var(--color-black);
+margin: 0 0 0.2em 0;
+padding: 0;
 }
 
 /* beschrijving */
 .sefpagina main section:nth-of-type(2) ul li p {
-    font-family: var(--font-primary);
-    font-size: 1.2em;
-    color: var(--color-black);
-    margin: 0 0 1em 0;
-    padding: 0;
+font-family: var(--font-primary);
+font-size: 1.2em;
+color: var(--color-black);
+margin: 0 0 1em 0;
+padding: 0;
 }
 
 /* dag */
 .sefpagina main section:nth-of-type(2) ul li h3 {
-    font-family: var(--font-secondary);
-    font-size: 1.3em;
-    color: var(--color-black);
-    margin: 0 0 1.5em 0;
-    padding: 0;
+font-family: var(--font-secondary);
+font-size: 1.3em;
+color: var(--color-black);
+margin: 0 0 1.5em 0;
+padding: 0;
 }
 
 /************/
-/* footer SEFPAGINA */
+/* footer sef pagina */
 /************/
 
 .sefpagina footer {
-  background-color: var(--color-yellow)
+background-color: var(--color-yellow)
 }
 
 
