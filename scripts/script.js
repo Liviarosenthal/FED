@@ -18,5 +18,26 @@ function sluitMenu() {
 
 //bron:https://codepen.io/shooft/pen/myepoJo  
 
+const button = document.querySelector('.pauzeknop');
+const iframe = document.querySelector('.festivalvideo');
 
+let isPlaying = true; 
+
+button.addEventListener('click', function() {
+    if (isPlaying) {
+        // PAUZEREN
+        iframe.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+        
+        // DEZE REGEL HEB IK WEGGEHAALD: button.innerText = "Afspelen"; 
+        
+        isPlaying = false; 
+    } else {
+        // AFSPELEN
+        iframe.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+        
+        // DEZE REGEL HEB IK WEGGEHAALD: button.innerText = "Pauze"; 
+        
+        isPlaying = true; 
+    }
+});
 

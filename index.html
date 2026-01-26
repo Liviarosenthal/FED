@@ -13,9 +13,11 @@
 <!--code menu: https://codepen.io/Livia-Rosenthal/pen/bNpjvqq + stappenplan: https://dlo.mijnhva.nl/content/enforced/690110-FDMCI-CRS-00042507/FED%2025-26%20-%20Blok%202%20-%20Oefening%20JS%203-stap%20-%202%20Hamburger%20menu.pdf-->
 <body>
 	<header>
-		<a href="index.html">
-			<img src="images/logo.svg" alt="Best Kept Secret logo afkorting">
+		<a class="logo-wissel" href="index.html">
+			<img class="start-logo"src="images/logo.svg" alt="Best Kept Secret logo afkorting">
+			<img class="scroll-logo" src="images/logo-datum.svg" alt="june 12, 13, 14">
 		</a>
+
 		<button aria-label="Open menu">MENU</button>
 		<nav>
 			<ul>
@@ -77,10 +79,23 @@
 	<main>
 	<section>
 		<h1 class="visually-hidden">Best Kept Secret Festival 2026 • Best Kept Secret • JUNE 12-13-14</h1>
-		<img src="images/homepagina-eerste-img.jpg" alt="Veel mensen aan het water met muziek">
+		<iframe
+			class="festivalvideo" 
+    		src="https://www.youtube.com/embed/5baBup6EAhU?autoplay=1&mute=1&controls=0&loop=1&playlist=5baBup6EAhU&enablejsapi=1" 
+			alt="beelden van het festival"
+			title="YouTube video player" 
+			frameborder="0"
+			allow="autoplay; encrypted-media">
+		</iframe>
+		<button class="pauzeknop"><img src="images/pauze-knop.svg" alt="pauzeknop"> </button> 
+		<!--bron:https://developers.google.com/youtube/player_parameters-->
+		<!--vanuit de bron hierboven een links samen laten stellen door ai (bron staat in 
+		read.me, is namelijk een screenshot van het gesprek)-->
+		<!--bron: https://www.youtube.com/watch?v=5baBup6EAhU-->
 
 		<!--horizontale scroll balk-->
 		<section aria-label="lopende tekst">
+		<h2 class="visually-hidden">Connected through music</h2>
   		<p>Connected through Music - 12, 13 & 14 june, beekse bergen, nl
 			<img src="images/logo-small-img.svg" alt="logo smal" >
 			Connected through Music - 12, 13 & 14 june, beekse bergen, nl
@@ -96,7 +111,7 @@
 		<!--eerste carrousel met het programma van de artiesten-->
 		
 			<h2>BKS26 Program</h2>
-			<ul>
+			<ul class="artiest-item">
 				<li>
 					<a href="#">
 						<img src="images/gorillazimg.png" alt="geïllustreerde afbeelding mensen op een bank en een tijger">
@@ -235,9 +250,9 @@
 				anyone else.</p>
 			<form> 
 				<label for="voornaam">First name </label>
-				<input type="text"> 
+				<input class="form-input" type="text" placeholder="" required > 
 				<label for="emailadres">Email address* </label>
-				<input type="text" > 
+				<input class="form-input" type="email" id="emailadres" placeholder="" required > <!--bron type=email:https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/email -->
 				<label> Confirmation*</label>
 				<input type="checkbox"> I agree to receive your newsletter and have read the privacy statement</label>
 				<p>By registering you are giving consent for your personal data to be processed by Friendly Fire. We will use your information to inform you about concerts, events, tours and artists. Check our Privacy Policy for more info. You can unsubscribe any time you want by simply clicking on the link below in every e-mail you receive from us. The Terms & Conditions are applicable.</p>

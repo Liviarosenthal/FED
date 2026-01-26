@@ -67,7 +67,25 @@ Nb. Door *open* toe te voegen aan een *details* element kun je deze standaard op
 
   op pagina twee is de screenreader ook best oke. hier wordt alles voorgelezen. ook alle iconen met linkjes worden voorgelezen. Het menu wordt uitgelegd. ook de eerste nummers in de spotifylijst worden benoemt. maar daarna loopt ie wel weer vast bij de zijwaarse balk. daar benoemt de screenreader vaak wat er staat. ook op het einde doet ie gek. want daar wordt de hele beschrijving benoemt van de afbeelding. van boven naar beneden scrollen was goed, horizontaal niet.  
 
+  WCAG checklist 1.0 (uitgevoerd door David)
+    <img src="readme-images/toegankelijkeheidstest1.0-1.HEIC" width="375px" alt="toegankelijkheidstest1.0">
+    <img src="readme-images/toegankelijkeheidstest1.0-2.HEIC" width="375px" alt="toegankelijkheidstest1.0">
+    <img src="readme-images/toegankelijkeheidstest1.0-3.HEIC" width="375px" alt="toegankelijkheidstest1.0">
+    <img src="readme-images/toegankelijkeheidstest1.0-4.HEIC" width="375px" alt="toegankelijkheidstest1.0">
+    <img src="readme-images/toegankelijkeheidstest1.0-5.HEIC" width="375px" alt="toegankelijkheidstest1.0">
 
+  Meest opvallende dingen: 
+  - geen lang attribuut
+  - niet elke pagina heeft een unieke titel
+  - Staat een <ol> ipv <ul>
+  - onduidelijke alt teksten bij img
+  - niet mogelijk om met de pijltjestoetsen door de linkjes heen te gaan
+  - decoratieve img's hebben geen lege alt teksten
+  - Video heeft geen beschrijving
+  - geen dark/light mode
+  - Geen focus state
+
+  
 </details>
 
 
@@ -158,6 +176,18 @@ Nb. Door *open* toe te voegen aan een *details* element kun je deze standaard op
 
   ### Bevindingen
   Lijst met je bevindingen die in de test naar voren kwamen (geef ook aan wat er verbeterd is):
+  
+  <img src="readme-images/toegankelijkheidstest2.0-1.png" width="375px" alt="toegankelijkheidstest 2.0">
+  <img src="readme-images/toegankelijkheidstest2.0-2.png" width="375px" alt="toegankelijkheidstest 2.0">
+  <img src="readme-images/toegankelijkheidstest2.0-3.png" width="375px" alt="toegankelijkheidstest 2.0">
+
+  - HTML is semantisch correct
+  - duidelijke alt teksten bij alle img's
+  - video heeft beschrijving 
+  - lang attribuut is aanwezig
+  - elke pagina heeft een unieke titel
+  - er is focus state
+  - lijsten staan in ul ipv ol 
 
 </details>
 
@@ -246,12 +276,21 @@ Nb. Door *open* toe te voegen aan een *details* element kun je deze standaard op
   5. bron: https://codepen.io/shooft/pen/QwjQGZe */scroll-snap-type: x mandatory; /* daardoor springt de img naar het midden nadat je klaar bent met scrollen. 
   6. bron:https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/font-stretchfont-stretch: expanded;  
   7. bron: https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input/checkboxform input[type="checkbox"]  > ik wist niet hoe je de checkbox moest aanspreken
-  8. bron > ik kreeg de ul niet in het midden gecentreerd, heb dit gevraagd aan ai en die kwam met oplossing marigin inline 
+  8. bron: https://chatgpt.com/share/69767af4-4a6c-800f-831e-679d2a318f8e > ik kreeg de ul niet in het midden gecentreerd, heb dit gevraagd aan ai en die kwam met oplossing margin inline
   9. bron: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/filter-function/brightness*/ filter: brightness(80%); 
   10. bron formulier: https://www.w3schools.com/html/html_forms.asp
   11. bron uitleg Iframe youtube video plakken in code:https://support.google.com/youtube/answer/171780?hl=en 
   12. bron uitleg Iframe spotify player :https://developer.spotify.com/documentation/embeds/tutorials/creating-an-embed   
-        
-        
+  13. 14. 15. 16. 17.  Formulier email adress animatie > 
+  bron :invalid: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:invalid
+  bron :placeholder-shown: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:placeholder-shown
+  bron :focus: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:focus
+  bron type=email: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/email  
+  bron keyframes: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@keyframes    
+  18. bron https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/filter-function/invert > om de svg pauzeknop kleur te geven  
+  19. vanuit de bron https://developers.google.com/youtube/player_parameters  een links samen laten stellen door ai. screenshot uit het gesprek: <img src='readme-images/bron-festivalvideo.png'>
+
+      
+  
 
 </details>
