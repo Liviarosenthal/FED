@@ -19,25 +19,31 @@ function sluitMenu() {
 //bron:https://codepen.io/shooft/pen/myepoJo  
 
 const button = document.querySelector('.pauzeknop');
+const buttonImg = button.querySelector('img')
 const iframe = document.querySelector('.festivalvideo');
 
 let isPlaying = true; 
 
 button.addEventListener('click', function() {
     if (isPlaying) {
-        // PAUZEREN
         iframe.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
-        
-        // DEZE REGEL HEB IK WEGGEHAALD: button.innerText = "Afspelen"; 
-        
+
+        //img veranderen naar playknop
+        buttonImg.src = "images/playbutton-video.svg"; 
+        buttonImg.alt = "afspelen";
+
         isPlaying = false; 
+
     } else {
-        // AFSPELEN
         iframe.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
-        
-        // DEZE REGEL HEB IK WEGGEHAALD: button.innerText = "Pauze"; 
-        
+
+        //img veranderen naar pauzeknop      
+        buttonImg.src = "images/pauze-knop.svg"; 
+        buttonImg.alt = "pauzeren";
+
         isPlaying = true; 
     }
 });
 
+// om een youtube video te besturen> bron: MDN Web Docs - window.postMessage() en contentWindow
+// het verstuurde bericht ('{"event":"command","func":"pauseVideo","args":""}', '*') bron: Google Developers - YouTube Iframe API Reference

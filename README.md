@@ -289,8 +289,9 @@ Nb. Door *open* toe te voegen aan een *details* element kun je deze standaard op
   bron keyframes: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@keyframes    
   18. bron https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/filter-function/invert > om de svg pauzeknop kleur te geven  
   19. vanuit de bron https://developers.google.com/youtube/player_parameters  een links samen laten stellen door ai. screenshot uit het gesprek: <img src='readme-images/bron-festivalvideo.png'>
-
-      
+  20. bron :focus-within: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:focus-within
+  21. om een youtube video te besturen> bron: MDN Web Docs - window.postMessage() en contentWindow
+  22. het verstuurde bericht ('{"event":"command","func":"pauseVideo","args":""}', '*') bron: Google Developers - YouTube Iframe API Reference    
   
 
 </details>
