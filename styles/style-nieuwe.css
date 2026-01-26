@@ -1,0 +1,959 @@
+/**************/
+/* CSS REMEDY */
+/**************/
+
+/* bron: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@font-face#description*/
+@font-face {
+  font-family: "franklin-gothic-atf";
+  src: url(../fonts/franklin-gothic-atf.otf) format("opentype");
+}
+
+@font-face {
+  font-family: "ABC Gravity Variable";
+  src: url(../fonts/ABC-Gravity-Variable.ttf) format("truetype");
+}
+
+*,*::after,*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* TOEGANKELIJKHEID*/
+:focus-visible {
+  outline: 0.2em solid var(--color-green);
+  outline-offset: 0.2em;
+}
+
+p:focus, h1:focus, h2:focus, h3:focus {
+  outline: none;
+}
+
+body {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+img {
+  width: 100%;
+  display: block; 
+}
+
+ul {
+  list-style: none;
+}
+
+.visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+/*********************/
+/* CUSTOM PROPERTIES */
+/*********************/
+:root {
+  --font-primary: "franklin-gothic-atf", sans-serif;
+  --font-secondary: "ABC Gravity Variable", sans-serif;
+  
+  --font-weight-normal: 400;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-black: 900;
+
+  --color-white: #fff;
+  --color-gray-light: #cfd8e6;
+  --color-black: #000;
+  --color-black-20: #0003;
+  --color-black-30: #0000004d;
+  --color-blue: #92b2e9;
+  --color-blue-darker: #42a1f7;
+  --color-blue-dark: #3c5ca3;
+  --color-green: #6ae617;
+  --color-green-dark: #273d2e;
+  --color-yellow: #fdd91f;
+  --color-yellow-darker: #fa0;
+  --color-orange: #ff4800;
+  --color-purple: #6a299f;
+  --color-gold: #906f3f;
+  --color-red: #7b0c0c;
+  --color-pink: #df81ad;
+  
+  --color-text: var(--color-black);
+  --color-meta: var(--color-black);
+  --color-lines: var(--color-black);
+  --color-placeholder: var(--color-black);
+  --color-accent: var(--color-black);
+  --color-danger: #dc3545;
+  --color-danger-bg: #f8d7da;
+  --color-success: #198754;
+  --color-stage-background: var(--color-yellow);
+  --color-stage-color: var(--color-text);
+  --color-day-background: var(--color-blue-darker);
+}
+
+/****************/
+/* JOUW STYLING */
+/****************/
+
+body {
+  accent-color: var(--color-accent);
+  background-color: var(--color-blue);
+  color: var(--color-text);
+  margin: 0;
+  padding: 0;
+}
+
+/* Standaard styling voor alle koppen */
+
+h2 {
+  font-size: 2em;
+  text-align: center;
+}
+
+/* Interactieve elementen smooth maken */
+a, button, input, li {
+  transition: all 0.3s ease-in-out;
+}
+
+/* ACHTERGRONDKLEUREN */
+body {
+  background-color: var(--color-blue);
+}
+
+header {
+  background-color: var(--color-white);
+}
+
+/* (News & Newsletter) */
+section:nth-of-type(2),
+section:nth-of-type(3) {
+  background-color: var(--color-yellow);
+}
+
+/* de groene horizontale balk) */
+main > section > section {
+  background-color: var(--color-green);
+}
+
+/* Footer (Hoofdpagina) */
+footer {
+  background-color: var(--color-orange);
+}
+
+/* SEF Pagina */
+.sefpagina {
+  background-color: var(--color-orange);
+}
+
+.sefpagina section:nth-of-type(2) {
+  background-color: var(--color-orange);
+}
+
+.sefpagina footer {
+  background-color: var(--color-yellow); 
+}
+
+/* FONTS */
+body {
+  font-family: var(--font-primary);
+  font-weight: var(--font-weight-normal);
+}
+
+h1, h2, h3, header button, header nav a, .logo-wissel, .pauzeknop, section a h3, section:nth-of-type(2) {
+  font-family: var(--font-secondary);
+}
+
+/* horizontale groene balk */
+main > section > section > p {
+  font-family: var(--font-secondary);
+  text-transform: uppercase;
+}
+
+/****************/
+/* HEADER & NAV */
+/****************/
+
+header {
+  display: flex;
+  position: fixed;
+  z-index: 99;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--color-white);
+  width: 100%;
+  height: 3.2em;
+  top: 0;
+  padding: 1em;
+}
+
+header a img {
+  width: 6em;
+}
+
+/* LOGO WISSEL */
+/* bron logo wissel (scrollen): https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/animation-timeline/scroll */
+/* bron logo wissel (start en einddtijd): https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/animation-range*/
+.logo-wissel {
+  display: block;
+  position: relative;
+  height: 3em;
+  width: 8em;
+  overflow: hidden;
+}
+
+.logo-wissel img {
+  display: block;
+  width: 100%;
+  height: 3em;
+  position: absolute;
+  animation-name: filmrol;
+  animation-fill-mode: both;
+  animation-timeline: scroll(root);
+  animation-range: 0em 5em;
+}
+
+.start-logo { 
+    top: 0;
+}
+.scroll-logo {
+     top: 100%; 
+}
+
+@keyframes filmrol {
+  to { transform: translateY(-100%); }
+}
+
+/* MENU */
+/* bron menu: https://codepen.io/shooft/pen/myepoJo */
+
+header button {
+  font-size: 0.8em;
+  border: none;
+  line-height: 1.2;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+header nav {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  padding: 2em;
+  height: 100vh;
+  bottom: 0;
+  translate: 100% 0%;
+  transition: translate 0.3s; /* bron:https://codepen.io/shooft/pen/myepoJo */
+  background-color: var(--color-white);
+}
+
+header nav.toonMenu {
+  translate: 0% 0%;
+}
+
+header nav ul:nth-of-type(1) li a {
+  display: flex;
+  justify-content: flex-start;
+  text-decoration: none;
+  color: var(--color-black);
+  font-size: 1.5em;
+  padding: 0;
+  margin: 0;
+}
+
+/* kruisje */
+header nav ul:first-of-type li:first-of-type {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  text-align: right;
+  margin-bottom: 2em;
+}
+
+header nav ul:first-of-type li:first-of-type button {
+  padding: 0;
+}
+
+/* Grote links in menu */
+header nav ul:first-of-type li:nth-of-type(2),
+header nav ul:first-of-type li:nth-of-type(3),
+header nav ul:first-of-type li:nth-of-type(4),
+header nav ul:first-of-type li:nth-of-type(5) {
+  font-size: 0.9em;
+  font-stretch: expanded;
+  margin-bottom: 1.5em;
+}
+
+/* Kleine links onderaan in menu */
+header nav ul:first-of-type li:nth-of-type(6) a,
+header nav ul:first-of-type li:nth-of-type(7) a,
+header nav ul:first-of-type li:nth-of-type(8) a,
+header nav ul:first-of-type li:nth-of-type(9) a,
+header nav ul:first-of-type li:nth-of-type(10) a {
+  display: block;
+  font-size: 1.3em;
+  font-stretch: condensed;
+  margin-bottom: 1em;
+}
+
+/* Ruimte tussen grote en kleine links */
+header nav ul:first-of-type li:nth-of-type(6) {
+  margin-top: 2.5em;
+}
+
+/* Social media icoontjes menu */
+header nav ul:last-of-type {
+  display: flex;
+  gap: 1em;
+  margin-top: 3em;
+}
+
+header nav ul:last-of-type img {
+  width: 1.5em;
+}
+
+/****************/
+/* PROGRAM SECTION */
+/****************/
+
+/* Video iframe */
+main > section > iframe {
+  display: block;
+  border: none;
+  margin-top: 3em;
+  pointer-events: none;
+  width: 144%;
+  height: 25em;
+}
+
+/* Pauzeknop */
+.pauzeknop {
+  position: absolute;
+  display: flex;
+  top: 30em;
+  right: 1em;
+  z-index: 10;
+  background: var(--color-black-30);
+  border: none;
+  padding: 0.5em 1em;
+  cursor: pointer;
+}
+
+/* SVG kleuren */
+/* bron: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/filter */
+.pauzeknop img {
+  filter: invert(72%) sepia(94%) saturate(416%) hue-rotate(36deg) brightness(95%) contrast(89%);
+}
+
+section:first-of-type h2 {
+  color: var(--color-black);
+  padding-block: 1.5em 0.5em;
+  font-size: 1.5em;
+  margin-block: 0.75em 0.5em;
+}
+
+section:first-of-type h3 {
+  color: var(--color-white);
+  font-size: 1em;
+}
+
+main > section > img {
+  display: block;
+  width: 100%;
+  height: 25em;
+  object-fit: cover;
+}
+
+/* HORIZONTALE SCROLLBALK */
+/* youtube link uitleg van dlo voor @keyframes: https://www.youtube.com/watch?v=HZHHBwzmJLk */
+main > section > section {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  white-space: nowrap; /* bron:https://css-tricks.com/almanac/properties/w/whitespace/*/
+  height: 3em;
+}
+
+main > section > section > p {
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+  animation: scroll-text 100s infinite;
+  font-size: 2.1em;
+  text-transform: uppercase;
+}
+
+main > section > section > p > img {
+  height: 0.6em;
+  width: 100%;
+}
+
+@keyframes scroll-text {
+  from { transform: translateX(0); }
+  to { transform: translateX(-100%); }
+}
+
+/****************/
+/* CAROUSELS (program en news) */
+/****************/
+main > section {
+  width: 100%;
+  overflow: hidden;
+}
+
+/* (ul) */
+section:first-of-type ul, 
+section:nth-of-type(2) > ul {
+  display: flex;
+  gap: 1em;
+  padding: 2em 1.5em;
+  margin: 0;
+  width: 100%;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory; /* bron: https://codepen.io/shooft/pen/QwjQGZe */
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+
+/* Items (li) */
+section:first-of-type li,
+section:nth-of-type(2) > ul > li {
+  scroll-snap-align: center;
+}
+
+/* Focus op linkjes in carousel */
+section:first-of-type a:focus-visible,
+section:nth-of-type(2) a:focus-visible {
+    outline: 4px solid var(--color-white);
+    outline-offset: -4px;
+}
+
+/* Specifiek voor PROGRAMMA Carousel */
+
+section:first-of-type a {
+  display: grid;
+  position: relative;
+  text-decoration: none;
+  overflow: hidden;
+  border-radius: 1em;
+}
+
+section:first-of-type li img,
+section:first-of-type li h3 {
+  grid-area: 1 / 1;
+}
+
+section:first-of-type li img {
+  width: 16em;
+  height: auto;
+  filter: brightness(80%);
+}
+
+section:first-of-type li h3 {
+  z-index: 2;
+  align-self: end;
+  justify-self: start;
+  margin: 1em;
+  color: white;
+}
+
+/* Hover effect programma */
+.artiest-item li:hover {
+  transform: scale(1.07);
+}
+
+/* See full line up link */
+section:first-of-type > a:last-of-type {
+  font-family: var(--font-secondary);
+  font-size: 1.4em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: var(--color-black);
+  text-transform: uppercase;
+  font-stretch: condensed;
+  padding-block: 4em 2.5em;
+}
+
+/****************/
+/* NEWS SECTION */
+/****************/
+
+section:nth-of-type(2) {
+  padding-top: 1.5em;
+}
+
+section:nth-of-type(2) h2 {
+  font-stretch: expanded;
+  padding-top: 1em;
+  padding-bottom: 0em;
+}
+
+/* Specifiek voor NIEUWS Carousel */
+
+section:nth-of-type(2) > ul > li {
+  min-width: 27em;
+  padding-block: 0.25em;
+}
+
+section:nth-of-type(2) a {
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+  display: grid;
+  overflow: hidden;
+  border-radius: 0.5em;
+  height: 100%;
+  width: 100%;
+}
+
+/* Grid area setup */
+section:nth-of-type(2) a img,
+section:nth-of-type(2) a h3,
+section:nth-of-type(2) a p,
+section:nth-of-type(2) a ul {
+  grid-area: 1 / 1;
+}
+
+/* news en getal */
+section:nth-of-type(2) li a ul {
+  align-self: start;
+  margin: 1em;
+  z-index: 10;
+  pointer-events: none;
+  display: flex;
+  gap: 8em;
+  justify-content: center;
+}
+
+/* News Label */
+section:nth-of-type(2) ul li a ul li:nth-of-type(2) {
+  font-size: 1.5em;
+  margin-top: 0.6em;
+  font-stretch: condensed;
+  color: var(--color-white);
+}
+
+/* getal */
+section:nth-of-type(2) li a ul li:first-of-type,
+section:nth-of-type(2) li a ul li:last-of-type {
+  font-size: 1.7em;
+  margin-top: 0.6em;
+  font-stretch: expanded;
+  color: var(--color-white);
+}
+
+/* Titel (H3) */
+section:nth-of-type(2) li a h3 {
+  align-self: end;
+  z-index: 3;
+  width: 80%;
+  font-size: 1.5em;
+  margin: 0 1em 1.5em 1em;
+  padding-bottom: 2em;
+  color: var(--color-white);
+}
+
+/* Read more tekst */
+section:nth-of-type(2) ul > li > a > p {
+  align-self: end;
+  z-index: 2;
+  margin: 0 0 2em 1.5em;
+  text-transform: uppercase;
+  font-stretch: condensed;
+  color: var(--color-white);
+}
+
+section:nth-of-type(2) li img {
+  width: 100%;
+  height: 100%;
+  border-radius: 2em;
+  filter: brightness(80%);
+  z-index: 1;
+}
+
+/****************/
+/* NEWSLETTER */
+/****************/
+
+section:nth-of-type(3) {
+  padding: 2em 1em;
+}
+
+section:nth-of-type(3) h2 {
+  padding-bottom: 0.7em;
+  text-align: left;
+  font-stretch: expanded; /* bron:https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/font-stretch */
+}
+
+section:nth-of-type(3) p {
+  font-size: 1.8em;
+  padding-inline: 0.1em;
+  width: 100%;
+  line-height: 1.05em;
+  padding-bottom: 0.9em;
+}
+
+section:nth-of-type(3) form > p {
+  font-size: 0.8em;
+}
+
+/* Form Styles */
+form input {
+  width: 100%;
+  height: 4em;
+  border: 0.1em solid #000;
+  border-radius: 3em;
+  background: transparent;
+  margin-bottom: 2em;
+  font-size: 1em;
+  padding-left: 1em;
+}
+
+/* Specifieke focus style voor inputs */
+form input:focus {
+  outline: none;
+  border-color: var(--color-green);
+  background-color: var(--color-white);
+  box-shadow: 0 0 0.5em var(--color-green);
+}
+
+form label {
+  display: block;
+  margin-bottom: 0.5em;
+  font-size: 1.2em;
+}
+
+/* Checkbox */
+/* ik wist niet hoe je de checkbox moest aanspreken. bron: https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/input/checkbox */
+form input[type="checkbox"] {
+  width: 0.8em;
+  height: auto;
+  margin-bottom: 0;
+  padding-right: 0.5em;
+}
+
+section:nth-of-type(3) form label:nth-of-type(3),
+section:nth-of-type(3) form label:nth-of-type(4) {
+  padding-bottom: 1.2em;
+}
+
+section:nth-of-type(3) form button {
+  padding: 0.9em;
+  border-radius: 1.5em;
+  text-transform: uppercase;
+  font-size: 1.2em;
+  color: var(--color-text);
+  background-color: var(--color-blue);
+  border: solid 0.07em;
+  cursor: pointer;
+}
+
+/* Validatie Animaties */
+/* bron: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@keyframes */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+/* bron :invalid: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:invalid */
+/* bron :placeholder-shown: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:placeholder-shown */
+.form-input:invalid:not(:placeholder-shown):not(:focus) {
+  border: 0.15em solid var(--color-orange);
+  background-color: #ff480031;
+  animation: shake 0.3s ease-in-out;
+}
+
+.form-input:valid:not(:placeholder-shown):not(:focus) {
+  border: 0.15em solid #6ae617;
+  background-color: #6ae61728;
+}
+
+/****************/
+/* FOOTER */
+/****************/
+
+footer {
+  color: var(--color-text);
+  font-family: var(--font-primary);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 0;
+  text-align: center;
+}
+
+/* Linkjes erven kleur van footer */
+footer a {
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+/* Eerste logo */
+footer > a:first-of-type {
+  padding-top: 1em;
+}
+
+footer > a:first-of-type img {
+  width: 20em;
+}
+
+/* Tweede logo */
+footer > img {
+  width: 10em;
+  margin: 2em auto;
+  padding-block: 2em;
+}
+
+/* Social iconen */
+footer ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2.4em 4em;
+  padding: 0 0 2em 0;
+  margin: 0;
+}
+
+footer li img {
+  width: 2.5em;
+  height: auto;
+}
+
+/* Footer onder */
+.footer-info {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: left;
+  margin-block: 1em;
+  width: 100%;
+  padding-left: 1em;
+}
+
+.footer-info p,
+.footer-info a {
+  font-size: 0.7em;
+  margin: 0;
+}
+
+/* Copyright */
+.footer-info p:first-of-type {
+  width: 45%;
+  margin-bottom: 0.5em;
+}
+
+/* Legal policies */
+.footer-info > a {
+  width: 20%;
+  padding-left: 1.5em;
+}
+
+/* Website by */
+.footer-info p:nth-of-type(2) {
+  width: 100%;
+}
+
+.footer-info p:nth-of-type(2) img {
+  height: 0.8em;
+  width: auto;
+  margin-left: 0.3em;
+  display: inline; /* Anders staat hij op een nieuwe regel */
+}
+
+/****************/
+/* SEF PAGINA */
+/****************/
+
+.sefpagina {
+  color: var(--color-black);
+}
+
+.sefpagina main section h1 {
+  font-size: 2.8em;
+  margin-top: 2em;
+  font-stretch: expanded;
+  margin-inline: auto;
+  width: 90%;
+}
+
+.sefpagina main section h2:first-of-type {
+  font-size: 1.5em;
+  padding-block: 0.4em 0.5em;
+  text-transform: uppercase;
+  margin-inline: auto;
+  width: 90%;
+  text-align: left;
+}
+
+/* Social icoontjes */
+.sefpagina main > section > ul {
+  width: 90%;
+  display: flex;
+  padding-bottom: 2em;
+  align-self: center;
+  justify-content: space-around;
+  padding-left: 0;
+  margin-inline: auto; /* bron: https://chatgpt.com/share/69767af4-4a6c-800f-831e-679d2a318f8e > ik kreeg de ul niet in het midden gecentreerd, heb dit gevraagd aan ai en die kwam met oplossing margin inline*/
+}
+
+.sefpagina main section ul li img {
+  width: 1.3em;
+  height: auto;
+  border-radius: 0; /*als ik dit eruit laat ,dan komt er border radius op de img's, weet niet waarom*/
+}
+
+.sefpagina main section > img {
+  border-radius: 1.5em;
+  margin: 0 auto;
+  width: 90%;
+  height: auto;
+}
+
+/* Saturday 13 */
+.sefpagina main section h2:nth-of-type(2) {
+  font-size: 1.5em;
+  font-stretch: condensed;
+  margin-left: 0;
+  text-align: center;
+}
+
+.sefpagina main section > h3 {
+  color: var(--color-black);
+  font-size: 1.5em;
+  text-align: start;
+  margin-left: 0.7em;
+  padding-bottom: 1.5em;
+  width: 90%;
+}
+
+.sefpagina main section p {
+  font-size: 1.2em;
+  margin-left: 0.7em;
+  margin-right: 0.5em;
+  padding-bottom: 2em;
+}
+
+.sefpagina main section iframe:nth-of-type(1) {
+  display: block;
+  margin: 0 auto;
+  border-radius: 0.5em;
+  width: 90%;
+  height: auto;
+}
+
+.sefpagina main section iframe:nth-of-type(2) {
+  display: block;
+  margin: 2em auto;
+  border-radius: 0.5em;
+  width: 90%;
+  height: 22em;
+}
+
+/* TWEEDE SECTIE */
+
+.sefpagina section:nth-of-type(2) {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sefpagina section:nth-of-type(2) > h2 {
+  margin: 0.5em;
+  font-size: 1.8em;
+  text-transform: none;
+}
+
+/* Gorillaz Afbeelding Link */
+.sefpagina section:nth-of-type(2) > a {
+  position: relative;
+  width: 90%;
+  height: auto;
+  text-decoration: none;
+  border-radius: 1.5em;
+  display: block;
+}
+
+.sefpagina section:nth-of-type(2) > a > img {
+  filter: brightness(80%); /* bron: https://developer.mozilla.org/en-US/ */
+}
+
+.sefpagina section:nth-of-type(2) > a > h3,
+.sefpagina section:nth-of-type(2) > a > p {
+  position: absolute;
+  left: 1.25rem;
+  color: white;
+  margin: 0;
+  z-index: 2;
+  text-align: left;
+  width: 70%;
+}
+
+.sefpagina section:nth-of-type(2) > a > h3 {
+  font-stretch: expanded;
+  bottom: 2em;
+  font-size: 2.5em;
+  text-transform: uppercase;
+}
+
+.sefpagina section:nth-of-type(2) > a > p {
+  bottom: 0em;
+  font-size: 1.2em;
+}
+
+/* Lijst onder de afbeelding (Sunday) */
+.sefpagina main section:nth-of-type(2) > p {
+  margin-top: 1em;
+  width: 90%;
+}
+
+.sefpagina main section:nth-of-type(2) ul {
+  padding: 2em;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  width: 100%; 
+}
+
+.sefpagina main section:nth-of-type(2) li {
+  display: flex;
+  flex-direction: column;
+  border-top: 0.3em solid var(--color-black);
+  padding: 1em;
+}
+
+.sefpagina main section:nth-of-type(2) ul li:last-of-type {
+  border-bottom: 0.3em solid var(--color-black);
+  margin-bottom: 2em;
+}
+
+.sefpagina main section:nth-of-type(2) ul li h2 {
+  font-size: 2em;
+  text-transform: uppercase;
+  color: var(--color-black);
+  margin: 0 0 0.2em 0;
+  padding: 0;
+  text-align: left;
+}
+
+.sefpagina main section:nth-of-type(2) ul li p {
+  font-size: 1.2em;
+  color: var(--color-black);
+  margin: 0 0 1em 0;
+  padding: 0;
+}
+
+.sefpagina main section:nth-of-type(2) ul li h3 {
+  font-size: 1.3em;
+  color: var(--color-black);
+  margin: 0 0 1.5em 0;
+  padding: 0;
+}
