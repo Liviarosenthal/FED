@@ -615,7 +615,6 @@ form input {
 form input:focus {
   outline: none;
   border-color: var(--color-green);
-  box-shadow: 0 0 0.5em var(--color-green);
 }
 
 form label {
