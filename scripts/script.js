@@ -14,10 +14,13 @@ function openMenu() {
 
 function sluitMenu() {
     deNav.classList.remove("toonMenu");
+
+    openButton.focus(); //zonder deze regel blijft er focus op het openen van de nav door :focus-within bron:https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/focus
 }
 
 //bron:https://codepen.io/shooft/pen/myepoJo  
 
+//pauze/play knop variables 
 const button = document.querySelector('.pauzeknop');
 const buttonImg = button.querySelector('img')
 const iframe = document.querySelector('.festivalvideo');
@@ -47,3 +50,4 @@ button.addEventListener('click', function() {
 
 // om een youtube video te besturen> bron: MDN Web Docs - window.postMessage() en contentWindow
 // het verstuurde bericht ('{"event":"command","func":"pauseVideo","args":""}', '*') bron: Google Developers - YouTube Iframe API Reference
+// img src en alt in js > bron: https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/src

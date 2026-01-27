@@ -18,6 +18,9 @@
   margin: 0;
   box-sizing: border-box;
 }
+/*********************/
+/* CUSTOM PROPERTIES */
+/*********************/
 
 :root {
   --font-primary: "franklin-gothic-atf", sans-serif;
@@ -59,16 +62,6 @@
   --color-day-background: var(--color-blue-darker);
 }
 
-/* TOEGANKELIJKHEID*/
-:focus-visible {
-  outline: 0.2em solid var(--color-green);
-  outline-offset: 0.2em;
-}
-
-p:focus, h1:focus, h2:focus, h3:focus {
-  outline: none;
-}
-
 body {
   overflow-x: hidden;
   scroll-behavior: smooth;
@@ -95,10 +88,12 @@ ul {
   width: 1px;
 }
 
-/*********************/
-/* CUSTOM PROPERTIES */
-/*********************/
-
+/* TOEGANKELIJKHEID*/
+:focus-visible {
+  outline: 0.2em solid var(--color-green);
+  outline-offset: 0.2em;
+}
+/* focus-visible gekozen, zodat de rand alleen zichtbaar is wanneer er wordt getabt en niet bij het klikken ervan, bron: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:focus-visible */
 
 /****************/
 /* JOUW STYLING */
@@ -129,7 +124,7 @@ header {
   background-color: var(--color-white);
 }
 
-/* (News & Newsletter) */
+/* News & Newsletter */
 section:nth-of-type(2),
 section:nth-of-type(3) {
   background-color: var(--color-yellow);
@@ -140,7 +135,7 @@ main > section > section {
   background-color: var(--color-green);
 }
 
-/* Footer (Hoofdpagina) */
+/* Footer Hoofdpagina */
 footer {
   background-color: var(--color-orange);
 }
@@ -256,7 +251,7 @@ header nav.toonMenu,
 header nav:focus-within {
   translate: 0% 0%;
 }
-/* bron :focus-within: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:focus-within */
+/* om in de nav te kijken met de tab > bron :focus-within: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:focus-within */
 
 header nav ul:nth-of-type(1) li a {
   display: flex;
@@ -348,8 +343,9 @@ main > section > iframe {
 
 /* SVG kleuren */
 /* bron: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/filter */
+/* kleur generator hex naar filter > bron: https://codepen.io/sosuke/pen/Pjoqqp */
 .pauzeknop img {
-  filter: invert(72%) sepia(94%) saturate(416%) hue-rotate(36deg) brightness(95%) contrast(89%);
+  filter: invert(86%) sepia(88%) saturate(2501%) hue-rotate(33deg) brightness(91%) contrast(99%);
 }
 
 section:first-of-type h2 {
@@ -426,11 +422,10 @@ section:nth-of-type(2) > ul > li {
   scroll-snap-align: center;
 }
 
-/* Focus op linkjes in carousel */
+/* linkjes in carousel */
 section:first-of-type a:focus-visible,
 section:nth-of-type(2) a:focus-visible {
-    outline: 4px solid var(--color-white);
-    outline-offset: -4px;
+  outline-offset: 0.2em;
 }
 
 /* Specifiek voor PROGRAMMA Carousel */
@@ -504,7 +499,7 @@ section:nth-of-type(2) > ul > li {
 
 section:nth-of-type(2) a {
   text-decoration: none;
-  color: inherit;
+  color: var(--color-black);
   position: relative;
   display: grid;
   overflow: hidden;
@@ -620,7 +615,6 @@ form input {
 form input:focus {
   outline: none;
   border-color: var(--color-green);
-  background-color: var(--color-white);
   box-shadow: 0 0 0.5em var(--color-green);
 }
 
@@ -654,7 +648,6 @@ section:nth-of-type(3) form button {
   cursor: pointer;
 }
 
-/* Validatie Animaties */
 /* bron: https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@keyframes */
 @keyframes shake {
   0%, 100% { transform: translateX(0); }
